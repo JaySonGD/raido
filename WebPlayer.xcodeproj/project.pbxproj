@@ -21,6 +21,10 @@
 		69669D092048F92000E6ED1E /* WebPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69669D082048F92000E6ED1E /* WebPlayerTests.m */; };
 		69669D142048F92000E6ED1E /* WebPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69669D132048F92000E6ED1E /* WebPlayerUITests.m */; };
 		69669D23204913B800E6ED1E /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 69669D21204913B700E6ED1E /* UIAlertController+Blocks.m */; };
+		69D035EF2068EFD200258626 /* TTZPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D035EE2068EFD200258626 /* TTZPlayer.m */; };
+		69D035F22069093500258626 /* UINavigationController+FullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D035F12069093400258626 /* UINavigationController+FullscreenPopGesture.m */; };
+		69E78C1220688ED3001DC75E /* TableViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E78C0D20688ED3001DC75E /* TableViewAnimationKit.m */; };
+		69E78C1320688ED3001DC75E /* UITableView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E78C1120688ED3001DC75E /* UITableView+XSAnimationKit.m */; };
 		852118226FD164F536CA704C /* libPods-WebPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68145941F7FE9A1D26C7ED3F /* libPods-WebPlayer.a */; };
 		AB10F1D8204D8A5D00D2D44A /* GJWHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10F1CA204D8A5B00D2D44A /* GJWHomeController.m */; };
 		AB10F1D9204D8A5D00D2D44A /* ZZYueYuTV.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10F1CB204D8A5B00D2D44A /* ZZYueYuTV.m */; };
@@ -37,11 +41,12 @@
 		AB1684D220502FB70099DFA8 /* UIView+PulseView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1684D120502FB70099DFA8 /* UIView+PulseView.m */; };
 		AB1684D5205034F80099DFA8 /* CALayer+PauseAimate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1684D4205034F80099DFA8 /* CALayer+PauseAimate.m */; };
 		AB6094C72067DA490040F003 /* TTZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6094C62067DA490040F003 /* TTZViewController.m */; };
+		AB6094D12067E6EE0040F003 /* TTZProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6094CF2067E6EE0040F003 /* TTZProfileViewController.m */; };
+		AB6094D22067E6EE0040F003 /* TTZProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6094D02067E6EE0040F003 /* TTZProfileViewController.xib */; };
 		AB683361204EBCEB000BB617 /* UIView+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = AB683360204EBCEB000BB617 /* UIView+Loading.m */; };
 		AB683365204ECCB4000BB617 /* TTZNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB683364204ECCB4000BB617 /* TTZNavigationController.m */; };
 		AB683369204ED802000BB617 /* RadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB683368204ED801000BB617 /* RadioCell.m */; };
 		AB68336A204ED833000BB617 /* RadioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB683366204ED801000BB617 /* RadioCell.xib */; };
-		AB68336D204EE310000BB617 /* FWPlayerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AB68336C204EE310000BB617 /* FWPlayerKit.m */; };
 		AB784372206773D100DEFB12 /* TTZTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB784371206773D100DEFB12 /* TTZTVController.m */; };
 		AB8FB9972065F00A00D970BB /* NSObject+StatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8FB9962065F00A00D970BB /* NSObject+StatusBar.m */; };
 		AB8FB99A2065F09A00D970BB /* TTZDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8FB9992065F09A00D970BB /* TTZDataService.m */; };
@@ -102,6 +107,16 @@
 		69669D152048F92000E6ED1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69669D21204913B700E6ED1E /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		69669D22204913B700E6ED1E /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
+		69D035ED2068EFD000258626 /* TTZPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTZPlayer.h; sourceTree = "<group>"; };
+		69D035EE2068EFD200258626 /* TTZPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZPlayer.m; sourceTree = "<group>"; };
+		69D035F02069093300258626 /* UINavigationController+FullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FullscreenPopGesture.h"; sourceTree = "<group>"; };
+		69D035F12069093400258626 /* UINavigationController+FullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FullscreenPopGesture.m"; sourceTree = "<group>"; };
+		69E78C0C20688ED3001DC75E /* TableViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKit.h; sourceTree = "<group>"; };
+		69E78C0D20688ED3001DC75E /* TableViewAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewAnimationKit.m; sourceTree = "<group>"; };
+		69E78C0E20688ED3001DC75E /* TableViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitConfig.h; sourceTree = "<group>"; };
+		69E78C0F20688ED3001DC75E /* TableViewAnimationKitHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitHeaders.h; sourceTree = "<group>"; };
+		69E78C1020688ED3001DC75E /* UITableView+XSAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XSAnimationKit.h"; sourceTree = "<group>"; };
+		69E78C1120688ED3001DC75E /* UITableView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XSAnimationKit.m"; sourceTree = "<group>"; };
 		898667A6D1CC0A5621B67205 /* libPods-WebPlayerUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebPlayerUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAE0D2657CC39473CDDE412 /* Pods-WebPlayerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebPlayerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebPlayerUITests/Pods-WebPlayerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB10F1CA204D8A5B00D2D44A /* GJWHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJWHomeController.m; sourceTree = "<group>"; };
@@ -132,6 +147,9 @@
 		AB53F507204EB7DB00B9E1F8 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		AB6094C52067DA490040F003 /* TTZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTZViewController.h; sourceTree = "<group>"; };
 		AB6094C62067DA490040F003 /* TTZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTZViewController.m; sourceTree = "<group>"; };
+		AB6094CE2067E6EE0040F003 /* TTZProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTZProfileViewController.h; sourceTree = "<group>"; };
+		AB6094CF2067E6EE0040F003 /* TTZProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTZProfileViewController.m; sourceTree = "<group>"; };
+		AB6094D02067E6EE0040F003 /* TTZProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TTZProfileViewController.xib; sourceTree = "<group>"; };
 		AB68335F204EBCEB000BB617 /* UIView+Loading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Loading.h"; sourceTree = "<group>"; };
 		AB683360204EBCEB000BB617 /* UIView+Loading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Loading.m"; sourceTree = "<group>"; };
 		AB683363204ECCB4000BB617 /* TTZNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTZNavigationController.h; sourceTree = "<group>"; };
@@ -139,8 +157,6 @@
 		AB683366204ED801000BB617 /* RadioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioCell.xib; sourceTree = "<group>"; };
 		AB683367204ED801000BB617 /* RadioCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadioCell.h; sourceTree = "<group>"; };
 		AB683368204ED801000BB617 /* RadioCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadioCell.m; sourceTree = "<group>"; };
-		AB68336B204EE310000BB617 /* FWPlayerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWPlayerKit.h; sourceTree = "<group>"; };
-		AB68336C204EE310000BB617 /* FWPlayerKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWPlayerKit.m; sourceTree = "<group>"; };
 		AB784370206773D100DEFB12 /* TTZTVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTZTVController.h; sourceTree = "<group>"; };
 		AB784371206773D100DEFB12 /* TTZTVController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTZTVController.m; sourceTree = "<group>"; };
 		AB8FB9952065F00A00D970BB /* NSObject+StatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+StatusBar.h"; sourceTree = "<group>"; };
@@ -253,9 +269,24 @@
 			path = WebPlayerUITests;
 			sourceTree = "<group>";
 		};
+		69E78C0B20688ED3001DC75E /* TableViewAnimationKit */ = {
+			isa = PBXGroup;
+			children = (
+				69E78C0C20688ED3001DC75E /* TableViewAnimationKit.h */,
+				69E78C0D20688ED3001DC75E /* TableViewAnimationKit.m */,
+				69E78C0E20688ED3001DC75E /* TableViewAnimationKitConfig.h */,
+				69E78C0F20688ED3001DC75E /* TableViewAnimationKitHeaders.h */,
+				69E78C1020688ED3001DC75E /* UITableView+XSAnimationKit.h */,
+				69E78C1120688ED3001DC75E /* UITableView+XSAnimationKit.m */,
+			);
+			path = TableViewAnimationKit;
+			sourceTree = "<group>";
+		};
 		AB53F508204EB80B00B9E1F8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				69D035F02069093300258626 /* UINavigationController+FullscreenPopGesture.h */,
+				69D035F12069093400258626 /* UINavigationController+FullscreenPopGesture.m */,
 				AB10F1E8204D912200D2D44A /* UIView+Extension.h */,
 				AB10F1E7204D912200D2D44A /* UIView+Extension.m */,
 				69669D22204913B700E6ED1E /* UIAlertController+Blocks.h */,
@@ -309,6 +340,7 @@
 		AB53F50B204EB84A00B9E1F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AB6094CD2067E67C0040F003 /* Profile */,
 				AB6094CC2067DAC50040F003 /* DS */,
 				AB6094CB2067DAA60040F003 /* HKDS */,
 				AB6094CA2067DA920040F003 /* Home */,
@@ -320,11 +352,12 @@
 		AB53F50C204EB8C400B9E1F8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				69E78C0B20688ED3001DC75E /* TableViewAnimationKit */,
 				AB8FB9A520660F2600D970BB /* LBLADMob.h */,
 				AB8FB9A420660F2600D970BB /* LBLADMob.m */,
 				AB8FB99B2065F20900D970BB /* Banner */,
-				AB68336B204EE310000BB617 /* FWPlayerKit.h */,
-				AB68336C204EE310000BB617 /* FWPlayerKit.m */,
+				69D035ED2068EFD000258626 /* TTZPlayer.h */,
+				69D035EE2068EFD200258626 /* TTZPlayer.m */,
 				AB10F1CF204D8A5C00D2D44A /* ZZYueYuTV.h */,
 				AB10F1CB204D8A5B00D2D44A /* ZZYueYuTV.m */,
 			);
@@ -371,6 +404,16 @@
 				AB784371206773D100DEFB12 /* TTZTVController.m */,
 			);
 			name = DS;
+			sourceTree = "<group>";
+		};
+		AB6094CD2067E67C0040F003 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AB6094CE2067E6EE0040F003 /* TTZProfileViewController.h */,
+				AB6094CF2067E6EE0040F003 /* TTZProfileViewController.m */,
+				AB6094D02067E6EE0040F003 /* TTZProfileViewController.xib */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		AB683362204ECC5A000BB617 /* Base */ = {
@@ -536,6 +579,7 @@
 				69669CFC2048F92000E6ED1E /* LaunchScreen.storyboard in Resources */,
 				69669CF92048F92000E6ED1E /* Assets.xcassets in Resources */,
 				69669CF72048F92000E6ED1E /* Main.storyboard in Resources */,
+				AB6094D22067E6EE0040F003 /* TTZProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,9 +606,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WebPlayer/Pods-WebPlayer-frameworks.sh",
+				"${PODS_ROOT}/AliyunPlayer_iOS/AliyunPlayerSDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AliyunPlayerSDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -601,7 +648,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		47452BA6629131B683CA23B8 /* [CP] Check Pods Manifest.lock */ = {
@@ -619,7 +666,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		67A63BCE6E8CA5C2A2344116 /* [CP] Copy Pods Resources */ = {
@@ -644,10 +691,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WebPlayer/Pods-WebPlayer-resources.sh",
+				"${PODS_ROOT}/AliyunPlayer_iOS/AliyunLanguageSource.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AliyunLanguageSource.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,7 +749,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -710,6 +759,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E78C1320688ED3001DC75E /* UITableView+XSAnimationKit.m in Sources */,
 				AB8FB9A32065F44A00D970BB /* TTZBannerView.m in Sources */,
 				AB10F1D8204D8A5D00D2D44A /* GJWHomeController.m in Sources */,
 				AB10F1DC204D8A5D00D2D44A /* GJWDetailController.m in Sources */,
@@ -717,6 +767,7 @@
 				AB10F1E6204D8EF400D2D44A /* GJWClassifyCell.m in Sources */,
 				AB10F1DA204D8A5D00D2D44A /* GJWDetailHeaderView.m in Sources */,
 				AB8FB9972065F00A00D970BB /* NSObject+StatusBar.m in Sources */,
+				AB6094D12067E6EE0040F003 /* TTZProfileViewController.m in Sources */,
 				AB6094C72067DA490040F003 /* TTZViewController.m in Sources */,
 				AB683369204ED802000BB617 /* RadioCell.m in Sources */,
 				69669D23204913B800E6ED1E /* UIAlertController+Blocks.m in Sources */,
@@ -730,14 +781,16 @@
 				69669CF12048F92000E6ED1E /* AppDelegate.m in Sources */,
 				AB8FB99A2065F09A00D970BB /* TTZDataService.m in Sources */,
 				AB784372206773D100DEFB12 /* TTZTVController.m in Sources */,
-				AB68336D204EE310000BB617 /* FWPlayerKit.m in Sources */,
 				AB8FB9A620660F2600D970BB /* LBLADMob.m in Sources */,
 				6965950E2060EB5F008C79DD /* TTZResultsController.m in Sources */,
+				69D035F22069093500258626 /* UINavigationController+FullscreenPopGesture.m in Sources */,
 				696595112060F03D008C79DD /* TTZHKTVViewController.m in Sources */,
 				AB10F1D9204D8A5D00D2D44A /* ZZYueYuTV.m in Sources */,
 				AB10F1DB204D8A5D00D2D44A /* ZZYueYUModel.m in Sources */,
 				AB683365204ECCB4000BB617 /* TTZNavigationController.m in Sources */,
+				69D035EF2068EFD200258626 /* TTZPlayer.m in Sources */,
 				696595082060E2D2008C79DD /* UIColor+Image.m in Sources */,
+				69E78C1220688ED3001DC75E /* TableViewAnimationKit.m in Sources */,
 				AB10F1DD204D8A5D00D2D44A /* ZZYueYUCell.m in Sources */,
 				AB683361204EBCEB000BB617 /* UIView+Loading.m in Sources */,
 			);
@@ -903,13 +956,16 @@
 			baseConfigurationReference = 3FC7703F5306C76C22F77EF6 /* Pods-WebPlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25TUU67WRS;
+				DEVELOPMENT_TEAM = S575E6NNCR;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WebPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WebPlayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunhu.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -919,13 +975,16 @@
 			baseConfigurationReference = 4E87E131BA7237046DC8C011 /* Pods-WebPlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25TUU67WRS;
+				DEVELOPMENT_TEAM = S575E6NNCR;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WebPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WebPlayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunhu.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

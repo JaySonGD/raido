@@ -11,7 +11,7 @@
 #import <SafariServices/SafariServices.h>
 #import "UIAlertController+Blocks.h"
 #import "common.h"
-#import "FWPlayerKit.h"
+#import "TTZPlayer.h"
 #import "LBLADMob.h"
 @interface ViewController ()
 @property (nonatomic, strong)  WKWebView *webView;
@@ -67,7 +67,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
-    if([FWPlayerKit sharedInstance].isPlaying) [[FWPlayerKit sharedInstance] pause];
+    if([TTZPlayer defaultPlayer].isPlaying) [[TTZPlayer defaultPlayer] pause];
     
     if (![LBLADMob sharedInstance].isRemoveAd) {
         

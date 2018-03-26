@@ -7,20 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TTZPlayer.h"
 
-@interface KDSBaseModel : NSObject
+@interface KDSBaseModel : NSObject <TTZPlayerModel>
 
-@property (nonatomic, strong) NSString *url;
+@property (nonatomic, copy) NSString *url;
 
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, copy) NSString *name;
 
 
 
-@property (nonatomic, strong) NSString *icon;
+@property (nonatomic, copy) NSString *icon;
 /** radio video html hktv detail */
-@property (nonatomic, strong) NSString *type;
-@property (nonatomic, strong) NSString *des;
-@property (nonatomic, strong) NSString *main;
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSString *des;
+@property (nonatomic, copy) NSString *main;
 /** 0 1->评分 */
 @property (nonatomic, assign) BOOL isReview;
 /** 0 1->标识 */

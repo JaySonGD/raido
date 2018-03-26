@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TTZProfileViewController">
+            <connections>
+                <outlet property="bgIV" destination="YgZ-4b-hZ4" id="efa-8z-p5C"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchBarBg" translatesAutoresizingMaskIntoConstraints="NO" id="YgZ-4b-hZ4">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="港剧资讯" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eJ-rY-Q1s">
+                    <rect key="frame" x="30" y="88" width="129.66666666666666" height="38.666666666666657"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.1 by TTZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyZ-lk-DOO">
+                    <rect key="frame" x="30" y="142.66666666666666" width="87" height="20.333333333333343"/>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-Hw-0vC">
+                    <rect key="frame" x="30" y="200" width="315" height="153"/>
+                    <string key="text">绕过WTO机制采取行动，有导致贸易纷争升级的风险，进而破坏贸易体系的稳定性，最终没有赢家。
+
+但在这场会议上，美国代表向中国提出了另一个要求。
+
+美国：要求中国取消“洋垃圾”进口禁令</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKJ-1T-4eZ">
+                    <rect key="frame" x="45" y="383" width="103" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="👍 给个好评"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGI-4E-DBK">
+                    <rect key="frame" x="223" y="383" width="107" height="34"/>
+                    <state key="normal" title="☕️ 请喝咖啡 "/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAg-NG-Itz">
+                    <rect key="frame" x="223" y="433" width="103" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="📧 反馈意见">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofc-fM-f5w">
+                    <rect key="frame" x="45" y="433" width="103" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="👉 推给好友"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s9y-GD-wfx">
+                    <rect key="frame" x="249" y="74" width="96" height="96"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="96" id="CdB-Q4-nlC"/>
+                        <constraint firstAttribute="width" constant="96" id="Zv7-iI-0XE"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="YgZ-4b-hZ4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="0YZ-eo-ZS7"/>
+                <constraint firstItem="YgZ-4b-hZ4" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="1Iq-ak-Z15"/>
+                <constraint firstItem="CyZ-lk-DOO" firstAttribute="top" secondItem="1eJ-rY-Q1s" secondAttribute="bottom" constant="16" id="1RA-rQ-U2H"/>
+                <constraint firstItem="ofc-fM-f5w" firstAttribute="top" secondItem="PKJ-1T-4eZ" secondAttribute="bottom" constant="16" id="2ks-dn-egk"/>
+                <constraint firstItem="PKJ-1T-4eZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="45" id="6X6-ZY-rOc"/>
+                <constraint firstItem="EAg-NG-Itz" firstAttribute="bottom" secondItem="ofc-fM-f5w" secondAttribute="bottom" id="70s-FV-CLI"/>
+                <constraint firstItem="s9y-GD-wfx" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="30" id="7AC-6h-ecW"/>
+                <constraint firstItem="M5j-Hw-0vC" firstAttribute="top" secondItem="s9y-GD-wfx" secondAttribute="bottom" constant="30" id="EFR-b6-Bse"/>
+                <constraint firstItem="bGI-4E-DBK" firstAttribute="top" secondItem="PKJ-1T-4eZ" secondAttribute="top" id="HhK-XH-qVM"/>
+                <constraint firstItem="EAg-NG-Itz" firstAttribute="trailing" secondItem="bGI-4E-DBK" secondAttribute="trailing" constant="-4" id="K5N-J1-8Sd"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="s9y-GD-wfx" secondAttribute="trailing" constant="30" id="QF2-bA-Neu"/>
+                <constraint firstItem="CyZ-lk-DOO" firstAttribute="leading" secondItem="1eJ-rY-Q1s" secondAttribute="leading" id="ScE-ui-bEZ"/>
+                <constraint firstItem="M5j-Hw-0vC" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="Sz6-y8-igx"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="bGI-4E-DBK" secondAttribute="trailing" constant="45" id="WhW-WV-o5M"/>
+                <constraint firstItem="PKJ-1T-4eZ" firstAttribute="top" secondItem="M5j-Hw-0vC" secondAttribute="bottom" constant="30" id="bXb-uk-fee"/>
+                <constraint firstItem="YgZ-4b-hZ4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fGI-ly-hV3"/>
+                <constraint firstItem="1eJ-rY-Q1s" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="44" id="t2u-3W-Zvx"/>
+                <constraint firstItem="1eJ-rY-Q1s" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="uLi-Zi-Su5"/>
+                <constraint firstAttribute="bottom" secondItem="YgZ-4b-hZ4" secondAttribute="bottom" id="w3c-k1-vE1"/>
+                <constraint firstItem="ofc-fM-f5w" firstAttribute="leading" secondItem="PKJ-1T-4eZ" secondAttribute="leading" id="xUN-jX-C55"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="M5j-Hw-0vC" secondAttribute="trailing" constant="30" id="zOU-Kf-cDS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="43.5" y="-128.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="SearchBarBg" width="512" height="88"/>
+    </resources>
+</document>

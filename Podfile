@@ -10,10 +10,12 @@ target 'WebPlayer' do
 pod 'MJRefresh' , '3.1.15.3'
 pod 'MJExtension'
 pod 'SDWebImage'
-pod 'PLPlayerKit','2.4.3'
+#pod 'PLPlayerKit','2.4.3'
+pod 'AliyunPlayer_iOS/AliyunPlayerSDK'
+
 pod 'Google-Mobile-Ads-SDK'
 pod 'Masonry'
-pod 'LYEmptyView'
+#pod 'LYEmptyView'
 
 
   # Pods for WebPlayer

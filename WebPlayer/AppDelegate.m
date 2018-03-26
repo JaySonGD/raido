@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 #import "LBLADMob.h"
-#import "FWPlayerKit.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +21,8 @@
     // Override point for customization after application launch.
     [self configAudioSession];
     [LBLADMob initAdMob];
+    
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
     return YES;
 }
 
@@ -85,12 +86,12 @@
     if (AVAudioSessionInterruptionTypeBegan == [notification.userInfo[AVAudioSessionInterruptionTypeKey] intValue])
     {
         NSLog(@"begin");
-        [[FWPlayerKit sharedInstance] pause];
+        //[[FWPlayerKit sharedInstance] pause];
     }
     else if (AVAudioSessionInterruptionTypeEnded == [notification.userInfo[AVAudioSessionInterruptionTypeKey] intValue])
     {
         NSLog(@"begin - end");
-        [[FWPlayerKit sharedInstance] play];
+        //[[FWPlayerKit sharedInstance] play];
 
     }
 }

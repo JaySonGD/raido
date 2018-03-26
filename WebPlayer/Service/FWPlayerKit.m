@@ -144,6 +144,7 @@ static NSString *status[] = {
         NSLog(@"暂停中。。。。");
 
     }
+    
 
     NSLog(@"%@", status[state]);
     

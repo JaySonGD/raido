@@ -12,11 +12,14 @@
 #import "ViewController.h"
 #import "GJWDetailController.h"
 #import "TTZTVController.h"
+#import "TTZProfileViewController.h"
+#import "TableViewAnimationKitHeaders.h"
 
 #import "TTZBannerView.h"
 #import "RadioCell.h"
-#import "FWPlayerKit.h"
+//#import "FWPlayerKit.h"
 #import "ZZYueYuTV.h"
+#import "TTZPlayer.h"
 
 #import "KDSBaseModel.h"
 #import "ZZYueYUModel.h"
@@ -25,6 +28,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <UIButton+WebCache.h>
 #import <SafariServices/SafariServices.h>
+#import <Masonry/Masonry.h>
 
 #import "common.h"
 #import "CALayer+PauseAimate.h"
@@ -51,7 +55,7 @@ UISearchResultsUpdating
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //[self setUI];
+    //[self initUI];
     [self loadData];
 }
 
@@ -62,14 +66,14 @@ UISearchResultsUpdating
     
     [self.playView startPulseWithColor:[[UIColor blackColor] colorWithAlphaComponent:0.75]
                              scaleFrom:1.0
-                                    to:1.2
+                                    to:1.5
                              frequency:1.0
                                opacity:0.5
-                             animation:PulseViewAnimationTypeRegularPulsing];
+                             animation:PulseViewAnimationTypeRadarPulsing];
 
-    if ([FWPlayerKit sharedInstance].isPlaying) {
-        //[self.playView stopPulse];
+    if ([TTZPlayer defaultPlayer].isPlaying){
         [self.playView.layer resumeAnimate];
+        
     }else{
         [self.playView.layer pauseAnimate];
     }
@@ -100,6 +104,8 @@ UISearchResultsUpdating
 
             [self initUI];
             [self.tableView reloadData];
+            [TableViewAnimationKit showWithAnimationType:3 tableView:self.tableView];
+
         });
         
         
@@ -114,8 +120,10 @@ UISearchResultsUpdating
     
     self.title = @"港剧";
     
+
+
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kStatusBarAndNavigationBarHeight, kScreenW, kScreenH-kStatusBarAndNavigationBarHeight) style:UITableViewStylePlain];
     tableView.rowHeight = 165;
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -128,17 +136,48 @@ UISearchResultsUpdating
     [self.view addSubview:tableView];
     _tableView = tableView;
     
-    if (self.banners.count) {
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 130)];
-        TTZBannerView *bannerView = [[TTZBannerView alloc] initWithFrame:CGRectMake(10, 10, kScreenW-20, 120)];
-        kViewRadius(bannerView, 5);
-        [headerView addSubview:bannerView];
-        bannerView.models = self.banners;
-        tableView.tableHeaderView = headerView;
-        bannerView.selectItemAtIndexPath = ^(KDSBaseModel *model) {
-            [self doAction:model];
-        };
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.searchController = self.searchController;
+        self.navigationItem.hidesSearchBarWhenScrolling = NO;
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;//这个是标题显示的方式，
+    
+        if (self.banners.count) {
+            
+            UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 130)];
+            TTZBannerView *bannerView = [[TTZBannerView alloc] initWithFrame:CGRectMake(10,10, kScreenW-20, 120)];
+            kViewRadius(bannerView, 5);
+            [headerView addSubview:bannerView];
+            bannerView.models = self.banners;
+            bannerView.selectItemAtIndexPath = ^(KDSBaseModel *model) {
+                [self doAction:model];
+            };
+            tableView.tableHeaderView = headerView;
+        }
+
+    
+    }else{
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        if (self.banners.count) {
+            
+            CGFloat bannerH = 100.0 * kScreenW /320.0;
+            
+            UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, bannerH + 10+self.searchController.searchBar.height)];
+            [headerView addSubview:self.searchController.searchBar];
+            
+            TTZBannerView *bannerView = [[TTZBannerView alloc] initWithFrame:CGRectMake(10,10+self.searchController.searchBar.height, kScreenW-20, bannerH)];
+            kViewRadius(bannerView, 5);
+            [headerView addSubview:bannerView];
+            bannerView.models = self.banners;
+            bannerView.selectItemAtIndexPath = ^(KDSBaseModel *model) {
+                [self doAction:model];
+            };
+            
+            tableView.tableHeaderView = headerView;
+            
+            
+        }else self.tableView.tableHeaderView = self.searchController.searchBar;
     }
+    
     
     
     UIButton *playView = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -147,33 +186,33 @@ UISearchResultsUpdating
     playView.imageView.clipsToBounds = YES;
     kViewBorderRadius(playView, 32, 1, [[UIColor blackColor] colorWithAlphaComponent:0.75]);
     kViewRadius(playView.imageView, 32);
-    
     playView.frame = CGRectMake(kScreenW - 64 - 32, kScreenH - 64 - 64, 64, 64);
     playView.backgroundColor = [UIColor blackColor];
-    [playView startPulseWithColor:[[UIColor blackColor] colorWithAlphaComponent:0.75] scaleFrom:1.0 to:1.2 frequency:1.0 opacity:0.5 animation:PulseViewAnimationTypeRegularPulsing];
+    [playView startPulseWithColor:[[UIColor blackColor] colorWithAlphaComponent:0.75] scaleFrom:1.0 to:1.5 frequency:1.0 opacity:0.5 animation:PulseViewAnimationTypeRadarPulsing];
     //[playView.layer startRotation];
     //[playView.layer pauseAnimate];
     self.playView = playView;
     
     [playView addTarget:self action:@selector(playClick) forControlEvents:UIControlEventTouchUpInside];
     
-    if (@available(iOS 11.0, *)) {
-        self.navigationItem.searchController = self.searchController;
-        self.navigationItem.hidesSearchBarWhenScrolling = NO;
-        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;//这个是标题显示的方式，
-    }else{
-        self.tableView.tableHeaderView = self.searchController.searchBar;
-    }
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UISwitch new]];
+    UIButton *logoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    logoBtn.frame = CGRectMake(0, 0, 44, 44);
+    logoBtn.backgroundColor = [UIColor orangeColor];
+    [logoBtn addTarget:self action:@selector(profileClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:logoBtn];
+}
+
+- (void)profileClick{
+    [self.navigationController pushViewController:[TTZProfileViewController new] animated:YES];
 }
 
 - (void)playClick{
     
-    if ([FWPlayerKit sharedInstance].isPlaying) {
-        [[FWPlayerKit sharedInstance] pause];
+    if ([TTZPlayer defaultPlayer].isPlaying) {
+        [[TTZPlayer defaultPlayer] pause];
     }else{
-        [[FWPlayerKit sharedInstance] play];
+        [[TTZPlayer defaultPlayer] play];
     }
 }
 
@@ -182,9 +221,8 @@ UISearchResultsUpdating
     
     if ([type isEqualToString:@"radio"]) {
         
-        [[FWPlayerKit sharedInstance] playWithURL:[NSURL URLWithString:model.url]
-                                         withName:model.name];
-        [self.playView sd_setImageWithURL:[NSURL URLWithString:model.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"logo"]];
+        [[TTZPlayer defaultPlayer] playWithModel:model];
+                [self.playView sd_setImageWithURL:[NSURL URLWithString:model.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"logo"]];
         [self.playView.layer startRotation];
 
         return;
@@ -234,34 +272,6 @@ UISearchResultsUpdating
 }
 
 #pragma mark  -  UITableViewDelegate
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    //
-    CATransform3D rotation;
-    rotation = CATransform3DMakeRotation((90.0*M_PI/180), 0.0, 0.7, 0.4);
-    rotation.m44 = 1.0/-600;
-    //阴影
-    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
-    //阴影偏移
-    cell.layer.shadowOffset = CGSizeMake(10, 10);
-    //透明度
-    cell.alpha = 0;
-    
-    cell.layer.transform = rotation;
-    
-    //锚点
-    cell.layer.anchorPoint = CGPointMake(0.5, 0.5);
-    
-    [UIView beginAnimations:@"rotaion" context:NULL];
-    
-    [UIView setAnimationDuration:0.5];
-    
-    cell.layer.transform = CATransform3DIdentity;
-    
-    cell.alpha = 1;
-    cell.layer.shadowOffset = CGSizeMake(0, 0);
-    
-    [UIView commitAnimations];
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     

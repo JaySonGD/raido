@@ -37,10 +37,10 @@ UICollectionViewDelegate,UICollectionViewDataSource
     // Do any additional setup after loading the view.
     [self setUI];
 }
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
-
+//- (UIStatusBarStyle)preferredStatusBarStyle{
+//    return UIStatusBarStyleLightContent;
+//}
+//
 #pragma mark  -  自定义方法
 - (void)setUI{
     

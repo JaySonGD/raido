@@ -17,7 +17,7 @@
 #import "RadioCell.h"
 #import "KDSBaseModel.h"
 
-#import "FWPlayerKit.h"
+#import "TTZPlayer.h"
 #import "common.h"
 
 @interface TTZResultsController ()
@@ -35,9 +35,9 @@ UITableViewDelegate,UITableViewDataSource
     // Do any additional setup after loading the view.
     [self initUI];
 }
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
+//- (UIStatusBarStyle)preferredStatusBarStyle{
+//    return UIStatusBarStyleLightContent;
+//}
 
 - (void)initUI{
     
@@ -70,8 +70,7 @@ UITableViewDelegate,UITableViewDataSource
     
     if ([type isEqualToString:@"radio"]) {
         
-        [[FWPlayerKit sharedInstance] playWithURL:[NSURL URLWithString:model.url]
-                                         withName:model.name];
+        [[TTZPlayer defaultPlayer] playWithModel:model];
         return;
     } else if([type isEqualToString:@"hktv"]){
         

@@ -16,7 +16,6 @@
 #import <MJRefresh/MJRefresh.h>
 #import <MJExtension/MJExtension.h>
 #import <UIImageView+WebCache.h>
-#import <LYEmptyView/LYEmptyViewHeader.h>
 #import "common.h"
 #import "ZZYueYuTV.h"
 #import "LBLADMob.h"
