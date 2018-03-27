@@ -66,27 +66,97 @@ static TTZPlayer *instance = nil;
     
     //更新字典
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:infos];
+}
+
+// 在需要处理远程控制事件的具体控制器或其它类中实现
+- (void)remoteControlEventHandler{
+    MPRemoteCommandCenter *rcc = [MPRemoteCommandCenter sharedCommandCenter];
+    
+    //    MPSkipIntervalCommand *skipBackwardIntervalCommand = [rcc skipBackwardCommand];
+    //    [skipBackwardIntervalCommand setEnabled:YES];
+    //    [skipBackwardIntervalCommand addTarget:self action:@selector(skipBackwardEvent:)];
+    //    skipBackwardIntervalCommand.preferredIntervals = @[@(42)];  // 设置快进时间
+    //
+    //    MPSkipIntervalCommand *skipForwardIntervalCommand = [rcc skipForwardCommand];
+    //    skipForwardIntervalCommand.preferredIntervals = @[@(42)];  // 倒退时间 最大 99
+    //    [skipForwardIntervalCommand setEnabled:YES];
+    //    [skipForwardIntervalCommand addTarget:self action:@selector(skipForwardEvent:)];
+    
+    
+    
+    [rcc.pauseCommand setEnabled:YES];
+    [rcc.pauseCommand addTarget:self action:@selector(playOrPauseEvent:)];
+    //
+    [rcc.playCommand setEnabled:YES];
+    [rcc.playCommand addTarget:self action:@selector(playOrPauseEvent:)];
+    
+    
+    //    MPRemoteCommand *nextCommand = [rcc nextTrackCommand];
+    //    [nextCommand setEnabled:YES];
+    //    [nextCommand addTarget:self action:@selector(nextCommandEvent:)];
+    //
+    //    MPRemoteCommand *previousCommand = [rcc previousTrackCommand];
+    //    [previousCommand setEnabled:YES];
+    //    [previousCommand addTarget:self action:@selector(previousCommandEvent:)];
+    
+    
+    // 启用耳机的播放/暂停命令 (耳机上的播放按钮触发的命令)
+    rcc.togglePlayPauseCommand.enabled = YES;
+    // 为耳机的按钮操作添加相关的响应事件
+    [rcc.togglePlayPauseCommand addTarget:self action:@selector(playOrPauseEvent:)];
 
 }
 
+- (void)playOrPauseEvent:(MPRemoteCommand *)command
+{
+    if (self.isPlaying)
+    {
+        [self pause];
+    }else
+    {
+        [self play];
+    }
+}
+
+//- (void)nextCommandEvent:(MPRemoteCommand *)command
+//{
+//    NSLog(@"%@",@"下一曲");
+//}
+//- (void)previousCommandEvent:(MPRemoteCommand *)command
+//{
+//    NSLog(@"%@",@"上一曲");
+//}
+
+//-(void)skipBackwardEvent: (MPSkipIntervalCommandEvent *)skipEvent
+//{
+//    NSLog(@"Skip backward by %f", skipEvent.interval);
+//}
+//-(void)skipForwardEvent: (MPSkipIntervalCommandEvent *)skipEvent
+//{
+//    NSLog(@"Skip forward by %f", skipEvent.interval);
+//}
+
 - (void)play
 {
+    _isPlaying = YES;
     [self.mediaPlayer play];
 }
 
 - (void)stop{
+    _isPlaying = NO;
     [self.mediaPlayer stop];
 }
 
 - (void)pause
 {
+    _isPlaying = NO;
     [self.mediaPlayer pause];
 }
 
 
 - (BOOL)isPlaying
 {
-    return self.mediaPlayer.isPlaying;
+    return _isPlaying && self.mediaPlayer.isPlaying;
 }
 
 
@@ -113,6 +183,7 @@ static TTZPlayer *instance = nil;
         _mediaPlayer.dropBufferDuration = 8000;
         
         [self addNotification];
+        [self remoteControlEventHandler];
     }
     return _mediaPlayer;
 }
@@ -161,6 +232,7 @@ static TTZPlayer *instance = nil;
 #pragma mark  - 获取到视频的相关信息
 - (void)OnVideoPrepared:(NSNotification *)noti{
     NSLog(@"%s--获取到视频的相关信息", __func__);
+    !(_playerLoading)? : _playerLoading();
 }
 
 #pragma mark  - 视频正常播放完成
@@ -200,6 +272,7 @@ static TTZPlayer *instance = nil;
 #pragma mark  - 播放器状态首帧显示
 - (void)onVideoFirstFrame:(NSNotification *)noti{
     NSLog(@"%s--播放器状态首帧显示", __func__);
+    !(_playerCompletion)? : _playerCompletion();
 }
 
 #pragma mark  - 播放器开启循环播放

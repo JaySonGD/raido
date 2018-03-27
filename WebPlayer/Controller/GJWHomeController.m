@@ -13,7 +13,6 @@
 #import "GJWDetailController.h"
 #import "TTZTVController.h"
 #import "TTZProfileViewController.h"
-#import "TableViewAnimationKitHeaders.h"
 
 #import "TTZBannerView.h"
 #import "RadioCell.h"
@@ -104,7 +103,6 @@ UISearchResultsUpdating
 
             [self initUI];
             [self.tableView reloadData];
-            [TableViewAnimationKit showWithAnimationType:3 tableView:self.tableView];
 
         });
         
@@ -153,7 +151,7 @@ UISearchResultsUpdating
             };
             tableView.tableHeaderView = headerView;
         }
-
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     
     }else{
         self.automaticallyAdjustsScrollViewInsets = NO;
@@ -200,7 +198,16 @@ UISearchResultsUpdating
     logoBtn.frame = CGRectMake(0, 0, 44, 44);
     logoBtn.backgroundColor = [UIColor orangeColor];
     [logoBtn addTarget:self action:@selector(profileClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:logoBtn];
+    
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                       target:nil action:nil];
+    /**
+     *  width为负数时，相当于btn向右移动width数值个像素，由于按钮本身和边界间距为5pix，所以width设为-5时，间距正好调整
+     *  为0；width为正数时，正好相反，相当于往左移动width数值个像素
+     */
+    negativeSpacer.width = -6;
+    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, [[UIBarButtonItem alloc] initWithCustomView:logoBtn], nil];
 }
 
 - (void)profileClick{
@@ -216,11 +223,20 @@ UISearchResultsUpdating
     }
 }
 
+
+#pragma mark  -  处理跳转事件
+
 - (void)doAction:(KDSBaseModel *)model{
     NSString *type = model.type;
     
     if ([type isEqualToString:@"radio"]) {
         
+        [TTZPlayer defaultPlayer].playerLoading = ^{
+            [self.playView showLoading];
+        };
+        [TTZPlayer defaultPlayer].playerCompletion = ^{
+            [self.playView hideLoading:nil];
+        };
         [[TTZPlayer defaultPlayer] playWithModel:model];
                 [self.playView sd_setImageWithURL:[NSURL URLWithString:model.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"logo"]];
         [self.playView.layer startRotation];

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @protocol TTZPlayerModel<NSObject>
 
 @property (nonatomic, copy, readonly) NSString *url;

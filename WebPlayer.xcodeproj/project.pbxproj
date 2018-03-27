@@ -23,8 +23,6 @@
 		69669D23204913B800E6ED1E /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 69669D21204913B700E6ED1E /* UIAlertController+Blocks.m */; };
 		69D035EF2068EFD200258626 /* TTZPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D035EE2068EFD200258626 /* TTZPlayer.m */; };
 		69D035F22069093500258626 /* UINavigationController+FullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D035F12069093400258626 /* UINavigationController+FullscreenPopGesture.m */; };
-		69E78C1220688ED3001DC75E /* TableViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E78C0D20688ED3001DC75E /* TableViewAnimationKit.m */; };
-		69E78C1320688ED3001DC75E /* UITableView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E78C1120688ED3001DC75E /* UITableView+XSAnimationKit.m */; };
 		852118226FD164F536CA704C /* libPods-WebPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68145941F7FE9A1D26C7ED3F /* libPods-WebPlayer.a */; };
 		AB10F1D8204D8A5D00D2D44A /* GJWHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10F1CA204D8A5B00D2D44A /* GJWHomeController.m */; };
 		AB10F1D9204D8A5D00D2D44A /* ZZYueYuTV.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10F1CB204D8A5B00D2D44A /* ZZYueYuTV.m */; };
@@ -111,12 +109,6 @@
 		69D035EE2068EFD200258626 /* TTZPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZPlayer.m; sourceTree = "<group>"; };
 		69D035F02069093300258626 /* UINavigationController+FullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FullscreenPopGesture.h"; sourceTree = "<group>"; };
 		69D035F12069093400258626 /* UINavigationController+FullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FullscreenPopGesture.m"; sourceTree = "<group>"; };
-		69E78C0C20688ED3001DC75E /* TableViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKit.h; sourceTree = "<group>"; };
-		69E78C0D20688ED3001DC75E /* TableViewAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewAnimationKit.m; sourceTree = "<group>"; };
-		69E78C0E20688ED3001DC75E /* TableViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitConfig.h; sourceTree = "<group>"; };
-		69E78C0F20688ED3001DC75E /* TableViewAnimationKitHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitHeaders.h; sourceTree = "<group>"; };
-		69E78C1020688ED3001DC75E /* UITableView+XSAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XSAnimationKit.h"; sourceTree = "<group>"; };
-		69E78C1120688ED3001DC75E /* UITableView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XSAnimationKit.m"; sourceTree = "<group>"; };
 		898667A6D1CC0A5621B67205 /* libPods-WebPlayerUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebPlayerUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAE0D2657CC39473CDDE412 /* Pods-WebPlayerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebPlayerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebPlayerUITests/Pods-WebPlayerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB10F1CA204D8A5B00D2D44A /* GJWHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJWHomeController.m; sourceTree = "<group>"; };
@@ -269,19 +261,6 @@
 			path = WebPlayerUITests;
 			sourceTree = "<group>";
 		};
-		69E78C0B20688ED3001DC75E /* TableViewAnimationKit */ = {
-			isa = PBXGroup;
-			children = (
-				69E78C0C20688ED3001DC75E /* TableViewAnimationKit.h */,
-				69E78C0D20688ED3001DC75E /* TableViewAnimationKit.m */,
-				69E78C0E20688ED3001DC75E /* TableViewAnimationKitConfig.h */,
-				69E78C0F20688ED3001DC75E /* TableViewAnimationKitHeaders.h */,
-				69E78C1020688ED3001DC75E /* UITableView+XSAnimationKit.h */,
-				69E78C1120688ED3001DC75E /* UITableView+XSAnimationKit.m */,
-			);
-			path = TableViewAnimationKit;
-			sourceTree = "<group>";
-		};
 		AB53F508204EB80B00B9E1F8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,7 +331,6 @@
 		AB53F50C204EB8C400B9E1F8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				69E78C0B20688ED3001DC75E /* TableViewAnimationKit */,
 				AB8FB9A520660F2600D970BB /* LBLADMob.h */,
 				AB8FB9A420660F2600D970BB /* LBLADMob.m */,
 				AB8FB99B2065F20900D970BB /* Banner */,
@@ -759,7 +737,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69E78C1320688ED3001DC75E /* UITableView+XSAnimationKit.m in Sources */,
 				AB8FB9A32065F44A00D970BB /* TTZBannerView.m in Sources */,
 				AB10F1D8204D8A5D00D2D44A /* GJWHomeController.m in Sources */,
 				AB10F1DC204D8A5D00D2D44A /* GJWDetailController.m in Sources */,
@@ -790,7 +767,6 @@
 				AB683365204ECCB4000BB617 /* TTZNavigationController.m in Sources */,
 				69D035EF2068EFD200258626 /* TTZPlayer.m in Sources */,
 				696595082060E2D2008C79DD /* UIColor+Image.m in Sources */,
-				69E78C1220688ED3001DC75E /* TableViewAnimationKit.m in Sources */,
 				AB10F1DD204D8A5D00D2D44A /* ZZYueYUCell.m in Sources */,
 				AB683361204EBCEB000BB617 /* UIView+Loading.m in Sources */,
 			);

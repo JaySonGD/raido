@@ -43,7 +43,7 @@ static char ACTIVITY_LABEL_KEY;
  */
 - (void)showLoading {
     // 默认展示灰色loading
-    [self showLoadingWithColor:[UIColor grayColor]];
+    [self showLoadingWithColor:[UIColor grayColor]];//
 }
 
 /**
