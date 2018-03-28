@@ -10,6 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "LBLADMob.h"
 
+#import "YPNetService.h"
+
 @interface AppDelegate ()
 
 @end
@@ -23,6 +25,8 @@
     [LBLADMob initAdMob];
     
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [YPNetService shareInstance].isProtocolService;
     return YES;
 }
 

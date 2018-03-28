@@ -28,6 +28,7 @@
 #import <UIButton+WebCache.h>
 #import <SafariServices/SafariServices.h>
 #import <Masonry/Masonry.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 #import "common.h"
 #import "CALayer+PauseAimate.h"
@@ -247,6 +248,14 @@ UISearchResultsUpdating
 
 - (void)doAction:(KDSBaseModel *)model{
     NSString *type = model.type;
+    
+    //短震  3D Touch中的peek震动反馈
+    //AudioServicesPlaySystemSound(1519);
+    //短震  3D Touch中的pop震动反馈
+    //AudioServicesPlaySystemSound(1520);
+    //连续三次短震动
+    AudioServicesPlaySystemSound(1521);
+    
     
     if ([type isEqualToString:@"radio"]) {
         
