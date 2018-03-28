@@ -32,6 +32,8 @@
 #import "common.h"
 #import "CALayer+PauseAimate.h"
 
+#define kHeadViewHeight  0.01
+
 @interface GJWHomeController ()
 <
 UITableViewDelegate,UITableViewDataSource,
@@ -47,6 +49,8 @@ UISearchResultsUpdating
 @property (nonatomic, weak) TTZResultsController *resultsController;
 
 @property (nonatomic, weak) UIButton *playView;
+
+@property (nonatomic, weak) UIImageView *imageView;
 @end
 
 @implementation GJWHomeController
@@ -154,26 +158,41 @@ UISearchResultsUpdating
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     
     }else{
+        
         self.automaticallyAdjustsScrollViewInsets = NO;
+        
+        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kHeadViewHeight)];
+        
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kHeadViewHeight)];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
+        imageView.image = [UIImage imageNamed:@"SearchBarBg"];
+        _imageView  = imageView;
+        [headView addSubview:imageView];
+        
+        [headView addSubview:self.searchController.searchBar];
+        headView.height = self.searchController.searchBar.height;
+
         if (self.banners.count) {
-            
+
             CGFloat bannerH = 100.0 * kScreenW /320.0;
-            
-            UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, bannerH + 10+self.searchController.searchBar.height)];
-            [headerView addSubview:self.searchController.searchBar];
-            
+            headView.height += (bannerH + 10);
+
             TTZBannerView *bannerView = [[TTZBannerView alloc] initWithFrame:CGRectMake(10,10+self.searchController.searchBar.height, kScreenW-20, bannerH)];
             kViewRadius(bannerView, 5);
-            [headerView addSubview:bannerView];
             bannerView.models = self.banners;
             bannerView.selectItemAtIndexPath = ^(KDSBaseModel *model) {
                 [self doAction:model];
             };
-            
-            tableView.tableHeaderView = headerView;
-            
-            
-        }else self.tableView.tableHeaderView = self.searchController.searchBar;
+            [headView addSubview:bannerView];
+
+
+
+        }
+        
+        self.tableView.tableHeaderView = headView;
+
+        
     }
     
     
@@ -289,6 +308,16 @@ UISearchResultsUpdating
 
 #pragma mark  -  UITableViewDelegate
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat yOffset = scrollView.contentOffset.y ; // 偏移的y值
+    if (yOffset < 0) {
+        CGFloat totalOffset = kHeadViewHeight + fabs(yOffset);
+        CGFloat f = totalOffset / kHeadViewHeight;
+         self.imageView.frame = CGRectMake( -(kScreenW * f - kScreenW) / 2.0, yOffset, kScreenW * f, totalOffset);
+
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return self.objs.count;
@@ -320,6 +349,7 @@ UISearchResultsUpdating
 
 
 #pragma mark  -  get/set 方法
+
 - (UISearchController *)searchController
 {
     if(!_searchController){
