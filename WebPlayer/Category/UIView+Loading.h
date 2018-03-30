@@ -27,4 +27,8 @@
 //- (void)removeLoading;
 - (void)hideLoading:(NSString *)msg;
 
+
+- (void)showView;
+- (void)hide;
+
 @end

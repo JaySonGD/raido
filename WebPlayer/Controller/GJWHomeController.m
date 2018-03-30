@@ -85,7 +85,7 @@ UISearchResultsUpdating
 
 
 - (void)loadData{
-    [self.view showLoading];
+    [self.view showView];
     NSURL * url = [NSURL URLWithString:@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio%20(1)%20.json"];
     //创建请求
     //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -100,7 +100,7 @@ UISearchResultsUpdating
     NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.view hideLoading:nil];
+            [self.view hide];
             if(error) return ;
             NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             self.objs =[KDSBaseModel mj_objectArrayWithKeyValuesArray:obj[@"list"]];
