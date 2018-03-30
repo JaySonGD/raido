@@ -7,6 +7,7 @@
 //
 
 #import "TTZProvinceController.h"
+#import "WKWebController.h"
 
 #import "GJWClassifyCell.h"
 #import "KDSBaseModel.h"
@@ -102,6 +103,16 @@ UICollectionViewDelegate,UICollectionViewDataSource
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    KDSBaseModel *model = self.models[indexPath.item];
+    WKWebController *vc = [WKWebController new];
+    vc.model = model;
+    [self.navigationController pushViewController:vc animated:YES];
+
+    return;
+    [DSKT getOneChannelKDSModelWithUrl:model.url sucess:^(NSDictionary *model) {
+        NSLog(@"%s", __func__);
+    }];
 //    [self.view showLoading];
 //
 //    KDSBaseModel *model = self.models[indexPath.item];

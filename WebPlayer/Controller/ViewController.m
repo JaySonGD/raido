@@ -188,9 +188,7 @@
         
     }else{
         [self.navigationController setNavigationBarHidden:YES animated:YES];
-        
     }
-    
 }
 
 @end
