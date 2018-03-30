@@ -112,7 +112,7 @@ UITableViewDelegate,UITableViewDataSource
     }else if([type isEqualToString:@"kds"]){
         TTZKDSController *vc = [TTZKDSController new];
         vc.model = model;
-        [self.navigationController pushViewController:vc animated:YES];
+        [self.presentingViewController.navigationController  pushViewController:vc animated:YES];
         return;
     }
     

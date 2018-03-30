@@ -24,7 +24,6 @@
 UICollectionViewDelegate,UICollectionViewDataSource
 >
 @property (nonatomic, weak) UICollectionView *collectionView;
-@property (nonatomic, strong) NSMutableArray <KDSBaseModel*>*models;
 
 @end
 
@@ -58,7 +57,7 @@ UICollectionViewDelegate,UICollectionViewDataSource
     
     collectionView.alwaysBounceVertical = YES;
     self.collectionView = collectionView;
-    [self loadData];
+    //[self loadData];
     
     if (![LBLADMob sharedInstance].isRemoveAd) {
         __weak typeof(self) weakSelf = self;
@@ -69,17 +68,24 @@ UICollectionViewDelegate,UICollectionViewDataSource
     }
     
 }
-#pragma mark 处理网络数据
-- (void)loadData{
-    __weak typeof(self) weakSelf = self;
-    [DSKT getOneProvinceAllKDSModelWithUrl:self.model.url sucess:^(NSArray<NSDictionary *> *obj) {
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:obj];
-            [weakSelf.collectionView reloadData];
-        });
+//#pragma mark 处理网络数据
+//- (void)loadData{
+//    __weak typeof(self) weakSelf = self;
+//    [DSKT getOneProvinceAllKDSModelWithUrl:self.model.url sucess:^(NSArray<NSDictionary *> *obj) {
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            weakSelf.models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:obj];
+//            [weakSelf.collectionView reloadData];
+//        });
+//
+//    }];
+//}
 
-    }];
+- (void)setModels:(NSMutableArray<KDSBaseModel *> *)models
+{
+    _models = models;
+    self.navigationItem.title = self.model.name;
+    [self.collectionView reloadData];
 }
 
 #pragma mark  -  UICollectionViewDelegate
@@ -107,12 +113,10 @@ UICollectionViewDelegate,UICollectionViewDataSource
     KDSBaseModel *model = self.models[indexPath.item];
     WKWebController *vc = [WKWebController new];
     vc.model = model;
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    [self.presentingViewController.navigationController?self.presentingViewController.navigationController : self.navigationController pushViewController:vc animated:YES];
 
     return;
-    [DSKT getOneChannelKDSModelWithUrl:model.url sucess:^(NSDictionary *model) {
-        NSLog(@"%s", __func__);
-    }];
 //    [self.view showLoading];
 //
 //    KDSBaseModel *model = self.models[indexPath.item];

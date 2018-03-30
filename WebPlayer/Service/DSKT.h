@@ -38,4 +38,6 @@
 +(void)getPayURLWithBaseURL:(NSString *)baseURL
                     success:(void(^)(NSString *))success
                     failure:(void(^)(NSError *error))failure;
+
++ (NSArray <NSDictionary *>*)lists;
 @end

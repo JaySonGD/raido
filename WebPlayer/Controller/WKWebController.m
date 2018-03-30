@@ -71,6 +71,7 @@
 - (void)setUI{
     [self.view addSubview:self.webView];
     self.view.backgroundColor = [UIColor blackColor];
+    self.navigationItem.title = self.model.name;
     
     NSString *url = [NSString stringWithFormat:@"http://m.91kds.com/%@.html",self.model.url];
 
@@ -145,7 +146,7 @@
 
     [tagJS appendString:@"var footer = document.getElementsByClassName('ui-footer')[0];"];
     [tagJS appendString:@"footer.parentNode.removeChild(footer);"];
-    
+    // FIXME: 预告
     [tagJS appendString:@"var listview = document.getElementById('myEpg');"];
     [tagJS appendString:@"listview.parentNode.removeChild(listview);"];
     
@@ -190,10 +191,26 @@
 
     NSMutableString *pageJS = [NSMutableString stringWithString:@"var bodyc = document.getElementsByClassName('ui-body-c')[0];"];
     [pageJS appendString:@"bodyc.setAttribute(\"style\",\"padding-top: 0px;background-color:black;min-height: 0px;\");"];
-    
+
     [webView evaluateJavaScript:pageJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
         NSLog(@"%s-bodyJS--%@----%@", __func__,obj,error);
     }];
+
+
+//    NSMutableString *listviewJS = [NSMutableString stringWithString:@"var bodyc = document.getElementsByClassName('ui-listview')[0];"];
+//    [listviewJS appendString:@"listviewJS.setAttribute(\"style\",\"padding: 0px;margin: 0px;\");"];
+//
+//    [webView evaluateJavaScript:listviewJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+//        NSLog(@"%s-bodyJS--%@----%@", __func__,obj,error);
+//    }];
+//
+//    //ui-last-child
+//    NSMutableString *lastchildJS = [NSMutableString stringWithString:@"var lastchild = document.getElementsByClassName('ui-last-child')[0];"];
+//    [lastchildJS appendString:@"lastchild.setAttribute(\"style\",\"padding: 0px;margin: 0px;\");"];
+//
+//    [webView evaluateJavaScript:lastchildJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+//        NSLog(@"%s-bodyJS--%@----%@", __func__,obj,error);
+//    }];
 
     
     NSMutableString *uicontentJS = [NSMutableString stringWithString:@"var uicontent = document.getElementsByClassName('ui-content')[0];"];

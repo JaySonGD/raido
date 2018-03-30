@@ -10,4 +10,6 @@
 @class KDSBaseModel;
 @interface TTZProvinceController : TTZViewController
 @property (nonatomic, strong) KDSBaseModel *model;
+@property (nonatomic, strong) NSMutableArray <KDSBaseModel*>*models;
+
 @end

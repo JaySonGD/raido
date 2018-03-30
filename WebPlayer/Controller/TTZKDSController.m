@@ -29,9 +29,12 @@
 
 @interface TTZKDSController ()
 <
-UICollectionViewDelegate,UICollectionViewDataSource
+UICollectionViewDelegate,UICollectionViewDataSource,
+UISearchResultsUpdating
 >
 @property (nonatomic, strong) UISearchController *searchController;
+@property (nonatomic, weak) TTZProvinceController *resultsController;
+
 @property (nonatomic, weak) UICollectionView *collectionView;
 @property (nonatomic, weak) UIView *emContentView;
 @property (nonatomic, assign) NSInteger page;
@@ -226,40 +229,67 @@ UICollectionViewDelegate,UICollectionViewDataSource
     KDSBaseModel *model = self.models[indexPath.item];
     model.isAddId = self.model.isAddId;
     model.isReview = self.model.isReview;
-    
 
-    TTZProvinceController *vc = [TTZProvinceController new];
-    vc.model = model;
-    [self.navigationController pushViewController:vc animated:YES];
+    __weak typeof(self) weakSelf = self;
+    [DSKT getOneProvinceAllKDSModelWithUrl:model.url sucess:^(NSArray<NSDictionary *> *obj) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+    
+            TTZProvinceController *vc = [TTZProvinceController new];
+            vc.models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:obj];
+            vc.model = model;
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+            
+        });
+        
+    }];
+
+    
 
     
     return;
-    if(!self.model.isReview || [[NSUserDefaults standardUserDefaults] objectForKey:@"isReview"])
-    {
-        [self.view showLoading];
-        KDSBaseModel *model = self.models[indexPath.item];
-        [ZZYueYuTV getTVDetail:model.url block:^(NSDictionary *obj) {
-            [self.view hideLoading:nil];
-            GJWDetailController *detail = [GJWDetailController new];
-            detail.model = [ZZYueYUModel mj_objectWithKeyValues:obj];
-            [self.navigationController pushViewController:detail animated:YES];
-        }];
-        
-        return;
-    }
-    
-    [UIAlertController showAlertInViewController:self withTitle:@"" message:@"好评后才能观看哦！立即给我好评。" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-        
-        if(buttonIndex != controller.cancelButtonIndex){
-            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1359761086?action=write-review"]];
-            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            appDelegate.beginTime = [NSDate date];
-        }
-        
-    }];
+//    if(!self.model.isReview || [[NSUserDefaults standardUserDefaults] objectForKey:@"isReview"])
+//    {
+//        [self.view showLoading];
+//        KDSBaseModel *model = self.models[indexPath.item];
+//        [ZZYueYuTV getTVDetail:model.url block:^(NSDictionary *obj) {
+//            [self.view hideLoading:nil];
+//            GJWDetailController *detail = [GJWDetailController new];
+//            detail.model = [ZZYueYUModel mj_objectWithKeyValues:obj];
+//            [self.navigationController pushViewController:detail animated:YES];
+//        }];
+//
+//        return;
+//    }
+//
+//    [UIAlertController showAlertInViewController:self withTitle:@"" message:@"好评后才能观看哦！立即给我好评。" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+//
+//        if(buttonIndex != controller.cancelButtonIndex){
+//            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1359761086?action=write-review"]];
+//            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//            appDelegate.beginTime = [NSDate date];
+//        }
+//
+//    }];
     
 }
 
+#pragma mark  -  UISearchResultsUpdating
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    
+    //模糊查询
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@", searchController.searchBar.text]; //
+    NSArray <NSDictionary *>*results = [DSKT.lists filteredArrayUsingPredicate:predicate];
+
+    KDSBaseModel *model = [KDSBaseModel new];
+    model.isAddId = self.model.isAddId;
+    model.isReview = self.model.isReview;
+    model.name = [NSString stringWithFormat:@"%@-的相关结果",searchController.searchBar.text];
+    self.resultsController.model = model;
+    self.resultsController.models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:results];
+    
+    NSLog(@"%s", __func__);
+}
 
 
 
@@ -268,9 +298,9 @@ UICollectionViewDelegate,UICollectionViewDataSource
 {
     if(!_searchController){
         
-        HKTVResultController *vc = [[HKTVResultController alloc] init];
+        TTZProvinceController *vc = [[TTZProvinceController alloc] init];
         _searchController = [[UISearchController alloc] initWithSearchResultsController:vc];
-        
+        _resultsController = vc;
         //背景
         //        _searchController.searchBar.barTintColor = [UIColor orangeColor];//[UIColor colorWithRed:67/255.0 green:205/255.0 blue:135/255.0 alpha:1.0];
         _searchController.searchBar.tintColor = [UIColor whiteColor];
@@ -299,7 +329,8 @@ UICollectionViewDelegate,UICollectionViewDataSource
         UITextField *searchField = [_searchController.searchBar valueForKey:@"searchField"];
         searchField.tintColor = kCommonColor;
         
-        _searchController.searchBar.delegate = vc;
+        _searchController.searchResultsUpdater = self;
+        //_searchController.searchBar.delegate = self;
         //_searchController.delegate = self;
         self.definesPresentationContext = YES;
         //        （1）如果不设置：self.definesPresentationContext = YES;那么如果设置了hidesNavigationBarDuringPresentation为YES，在进入编辑模式的时候会导致searchBar看不见（偏移-64）。如果设置了hidesNavigationBarDuringPresentation为NO，在进入编辑模式会导致高度为64的空白区域出现（导航栏未渲染出来）。
