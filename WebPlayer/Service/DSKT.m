@@ -175,8 +175,8 @@
     NSMutableDictionary *model = [NSMutableDictionary dictionary];
     
     //model.province = [self getAStringOfChineseWord:obj];
-    model[@"province"] = [self getAStringOfChineseWord:obj];
-    model[@"provinceUrl"] = indexHtml;
+    model[@"name"] = [self getAStringOfChineseWord:obj];
+    model[@"url"] = indexHtml;
     
     //model.provinceUrl = indexHtml;
     if (idx == tem.count-1) {
@@ -188,7 +188,7 @@
             name = [name stringByReplacingOccurrencesOfString:@"移动广告" withString:@""];
         }
         //model.province = name;
-        model[@"province"] = indexHtml;
+        model[@"name"] = indexHtml;
         
     }
     return model;

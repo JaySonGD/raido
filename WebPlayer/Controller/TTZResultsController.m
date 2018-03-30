@@ -7,11 +7,15 @@
 //
 
 #import "TTZResultsController.h"
+
 #import <SafariServices/SafariServices.h>
 #import <MJExtension/MJExtension.h>
+
 #import "TTZHKTVViewController.h"
 #import "ViewController.h"
 #import "GJWDetailController.h"
+#import "TTZKDSController.h"
+
 #import "ZZYueYUModel.h"
 #import "ZZYueYuTV.h"
 #import "RadioCell.h"
@@ -104,6 +108,11 @@ UITableViewDelegate,UITableViewDataSource
     }else  if([type isEqualToString:@"html"]){
         SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:model.url]];
         [self presentViewController:safariVC animated:YES completion:nil];
+        return;
+    }else if([type isEqualToString:@"kds"]){
+        TTZKDSController *vc = [TTZKDSController new];
+        vc.model = model;
+        [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     

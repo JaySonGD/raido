@@ -13,6 +13,7 @@
 #import "GJWDetailController.h"
 #import "TTZTVController.h"
 #import "TTZProfileViewController.h"
+#import "TTZKDSController.h"
 
 #import "TTZBannerView.h"
 #import "RadioCell.h"
@@ -86,7 +87,7 @@ UISearchResultsUpdating
 
 - (void)loadData{
     [self.view showView];
-    NSURL * url = [NSURL URLWithString:@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio%20(1)%20.json"];
+    NSURL * url = [NSURL URLWithString:@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio.json"];
     //创建请求
     //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15.0];
@@ -309,6 +310,13 @@ UISearchResultsUpdating
     }else if([type isEqualToString:@"html"]){
         SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:model.url]];
         [self presentViewController:safariVC animated:YES completion:nil];
+        return;
+    }else if([type isEqualToString:@"kds"]){
+        
+        TTZKDSController *vc = [TTZKDSController new];
+        vc.model = model;
+        [self.navigationController pushViewController:vc animated:YES];
+        
         return;
     }
     
