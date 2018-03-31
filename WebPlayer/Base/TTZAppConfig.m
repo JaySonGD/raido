@@ -1,0 +1,102 @@
+//
+//  TTZAppConfig.m
+//  WebPlayer
+//
+//  Created by Jay on 2018/3/31.
+//  Copyright © 2018年 Jay. All rights reserved.
+//
+
+#import "TTZAppConfig.h"
+
+static TTZAppConfig *instance = nil;
+#ifdef DEBUG
+// 测试 应用ID
+#define kGoogleMobileAdsAppID @"ca-app-pub-3940256099942544~1458002511"
+//插页式广告ID
+#define kGoogleMobileAdsInterstitialID @"ca-app-pub-3940256099942544/4411468910"
+//横幅广告ID
+#define kGoogleMobileAdsBannerID  @"ca-app-pub-3940256099942544/6300978111"
+
+#else
+//// 应用ID
+//#define kGoogleMobileAdsAppID @"ca-app-pub-8803735862522697~8253379170"
+//
+////插页式广告ID
+//#define kGoogleMobileAdsInterstitialID @"ca-app-pub-8803735862522697/1432819955"
+//
+////横幅广告ID
+//#define kGoogleMobileAdsBannerID @"ca-app-pub-8803735862522697/1304827447"
+
+#endif
+
+@implementation TTZAppConfig
+
++ (instancetype)defaultConfig{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
++ (instancetype)allocWithZone:(struct _NSZone *)zone{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [super allocWithZone:zone];
+    });
+    return instance;
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key
+{
+    [super setValue:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    
+}
+
+- (BOOL)isRemoveAd{
+    BOOL isRemoveAd =  [[[NSUserDefaults standardUserDefaults] objectForKey:@"isRemoveAd"] boolValue];
+    return isRemoveAd? isRemoveAd : NO;
+}
+
+- (NSString *)googleMobileAdsAppID{
+    NSString * googleMobileAdsAppID =  [[NSUserDefaults standardUserDefaults] stringForKey:@"googleMobileAdsAppID"];
+    return googleMobileAdsAppID.length? googleMobileAdsAppID : kGoogleMobileAdsAppID;
+
+}
+
+- (NSString *)googleMobileAdsInterstitialID{
+    NSString * googleMobileAdsInterstitialID =  [[NSUserDefaults standardUserDefaults] stringForKey:@"googleMobileAdsInterstitialID"];
+    return googleMobileAdsInterstitialID.length? googleMobileAdsInterstitialID : kGoogleMobileAdsInterstitialID;
+
+}
+
+- (NSString *)googleMobileAdsBannerID{
+    NSString * googleMobileAdsBannerID =  [[NSUserDefaults standardUserDefaults] stringForKey:@"googleMobileAdsBannerID"];
+    return googleMobileAdsBannerID.length? googleMobileAdsBannerID : kGoogleMobileAdsBannerID;
+}
+
+- (NSString *)mail{
+    NSString * mail =  [[NSUserDefaults standardUserDefaults] stringForKey:@"mail"];
+    return mail.length? mail : @"853945995@qq.com";
+}
+
+- (NSString *)leaveReviewURL{
+    NSString * url =  [[NSUserDefaults standardUserDefaults] stringForKey:@"leaveReviewURL"];
+    return url.length? url : @"itms-apps://itunes.apple.com/app/id1297897150?action=write-review";
+}
+
+- (NSString *)shareURL{
+    NSString * url =  [[NSUserDefaults standardUserDefaults] stringForKey:@"shareURL"];
+    return url.length? url : @"https://itunes.apple.com/cn/app/%E9%A6%99%E6%B8%AF%E7%94%B5%E5%8F%B0-%E9%A6%99%E6%B8%AF%E5%B9%BF%E6%92%AD%E7%94%B5%E5%8F%B0-hk-radio-%E8%A6%81%E5%90%AC%E5%90%AC%E9%A6%99%E6%B8%AF%E6%94%B6%E9%9F%B3%E6%9C%BA/id1297897150?mt=8&uo=4";
+}
+
+- (NSString *)coffeeURL{
+    NSString * url =  [[NSUserDefaults standardUserDefaults] stringForKey:@"coffeeURL"];
+    return url.length? url : @"https://www.baidu.com/";
+}
+
+@end

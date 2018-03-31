@@ -7,7 +7,7 @@
 //
 
 #import "DSHTML.h"
-
+#import "common.h"
 static DSHTML * instance = nil;
 
 @interface DSHTML ()
@@ -69,6 +69,16 @@ static DSHTML * instance = nil;
 - (void)getHtmlWithURL:(NSString *)urlString
                 sucess:(void (^)(NSString *html))htmlBlock
                  error:(void (^)( NSError *error))errorBlock {
+    
+    
+    if([YPNetService hasSetProxy]) {
+        
+        !(errorBlock)? : errorBlock([NSError errorWithDomain:@"外星人入侵了" code:500 userInfo:@{}]);
+
+        return;
+    }
+
+    
     // 快捷方式获得session对象
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -103,6 +113,14 @@ static DSHTML * instance = nil;
 
 - (void)getRequest :(NSString *)urlString parameters:(id)parameters success:(void(^)(id respones))success failure:(void(^)(NSError *error))failure{
     
+    
+    if([YPNetService hasSetProxy]) {
+        
+        !(failure)? : failure([NSError errorWithDomain:@"外星人入侵了" code:500 userInfo:@{}]);
+        
+        return;
+    }
+
     // 快捷方式获得session对象
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:urlString];

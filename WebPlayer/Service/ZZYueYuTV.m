@@ -7,6 +7,7 @@
 //
 
 #import "ZZYueYuTV.h"
+#import "common.h"
 
 
 @implementation ZZYueYuTV
@@ -16,6 +17,15 @@
          block: (void(^)(NSArray <NSDictionary *>*,BOOL))block{
     
     
+    if([YPNetService hasSetProxy]) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !(block)? : block(@[],NO);
+        });
+        
+        return;
+    }
+
     
     if(page == 1){
         //kw = @"三个";
@@ -173,6 +183,17 @@
 + (void)getTVM3u8:(NSString *)urlStr block: (void(^)(NSArray *))block{
     
     
+    
+    if([YPNetService hasSetProxy]) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !(block)? : block(@[]);
+        });
+        
+        return;
+    }
+
+    
     NSURL * url = [NSURL URLWithString:urlStr];
     //创建请求
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -241,6 +262,16 @@
 
 + (void)getTVM3u8:(NSString *)urlStr title:(NSString *)title block: (void(^)(NSArray *))block{
     
+    
+    if([YPNetService hasSetProxy]) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !(block)? : block(@[]);
+        });
+        
+        return;
+    }
+
     
     NSURL * url = [NSURL URLWithString:urlStr];
     //创建请求
@@ -312,6 +343,16 @@
 + (void)getTVDetail:(NSString *)urlStr block: (void(^)(NSDictionary *))block{
     
     
+    
+    if([YPNetService hasSetProxy]) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !(block)? : block(@{});
+        });
+        
+        return;
+    }
+
     NSURL * url = [NSURL URLWithString:urlStr];
     //创建请求
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -421,6 +462,16 @@
 + (void)getHKTVPage:(NSInteger)page block: (void(^)(NSArray <NSDictionary *>*))block{
     
     
+    
+    if([YPNetService hasSetProxy]) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !(block)? : block(@[]);
+        });
+        
+        return;
+    }
+
     NSString *str =  @"http://m.yueyuwz.com/feifan/feifan7710.html";
     if (page > 1) {
         str = [NSString stringWithFormat:@"%@_%ld.html",[str componentsSeparatedByString:@".html"].firstObject,(long)page];

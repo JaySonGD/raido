@@ -26,7 +26,6 @@
     
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [YPNetService shareInstance].isProtocolService;
     return YES;
 }
 

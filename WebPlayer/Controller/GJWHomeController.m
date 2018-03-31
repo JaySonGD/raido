@@ -20,6 +20,7 @@
 //#import "FWPlayerKit.h"
 #import "ZZYueYuTV.h"
 #import "TTZPlayer.h"
+#import "TTZAppConfig.h"
 
 #import "KDSBaseModel.h"
 #import "ZZYueYUModel.h"
@@ -86,8 +87,11 @@ UISearchResultsUpdating
 
 
 - (void)loadData{
+    
+    if([YPNetService hasSetProxy]) return;
+    
     [self.view showView];
-    NSURL * url = [NSURL URLWithString:@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio.json"];
+    NSURL * url = [NSURL URLWithString:@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio%20(1)%20.json"];
     //创建请求
     //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15.0];
@@ -104,9 +108,12 @@ UISearchResultsUpdating
             [self.view hide];
             if(error) return ;
             NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            self.objs =[KDSBaseModel mj_objectArrayWithKeyValuesArray:obj[@"list"]];
-            self.banners =[KDSBaseModel mj_objectArrayWithKeyValuesArray:obj[@"banner"]];
+            self.objs =[KDSBaseModel mj_objectArrayWithKeyValuesArray:[obj objectForKey:@"list"]];
+            self.banners =[KDSBaseModel mj_objectArrayWithKeyValuesArray:[obj objectForKey:@"banner"]];
 
+            [TTZAppConfig mj_objectWithKeyValues:[obj objectForKey:@"config"]];
+            
+            
             [self initUI];
             [self.tableView reloadData];
 
@@ -157,7 +164,8 @@ UISearchResultsUpdating
             };
             tableView.tableHeaderView = headerView;
         }
-        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        tableView.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+        //self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAutomatic;
     
     }else{
         
@@ -330,7 +338,7 @@ UISearchResultsUpdating
     if (yOffset < 0) {
         CGFloat totalOffset = kHeadViewHeight + fabs(yOffset);
         CGFloat f = totalOffset / kHeadViewHeight;
-         self.imageView.frame = CGRectMake( -(kScreenW * f - kScreenW) / 2.0, yOffset, kScreenW * f, totalOffset);
+        self.imageView.frame = CGRectMake( -(kScreenW * f - kScreenW) / 2.0, yOffset, kScreenW * f, totalOffset);
 
     }
 }

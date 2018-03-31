@@ -10,63 +10,54 @@
 //#import <SystemConfiguration/SystemConfiguration.h>
 
 @implementation YPNetService
-+ (instancetype)shareInstance
-{
-    static dispatch_once_t once;
-    static id instance;
-    dispatch_once(&once, ^{
-        instance = [[self alloc] init];
-    });
-    return instance;
-}
 
-- (BOOL)hasSetProxy
-
-{
-    
-    BOOL proxy = NO;
-    
-    
-    
-    NSDictionary *proxySettings = (__bridge NSDictionary *)(CFNetworkCopySystemProxySettings());
-    
-    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
-    
-    NSArray *proxies = (__bridge NSArray *)(CFNetworkCopyProxiesForURL((__bridge CFURLRef)(url),
-                                                                       
-                                                                       (__bridge CFDictionaryRef)(proxySettings)));
-    
-    NSLog(@"proxies:%@", proxies);
-    
-    NSDictionary *settings = proxies[0];
-    
-    NSLog(@"kCFProxyHostNameKey: %@", [settings objectForKey:(NSString *)kCFProxyHostNameKey]);
-    
-    NSLog(@"kCFProxyPortNumberKey: %@", [settings objectForKey:(NSString *)kCFProxyPortNumberKey]);
-    
-    NSLog(@"kCFProxyTypeKey: %@", [settings objectForKey:(NSString *)kCFProxyTypeKey]);
-    
-    if ([[settings objectForKey:(NSString *)kCFProxyTypeKey] isEqualToString:@"kCFProxyTypeNone"]) {
-        
-        proxy = NO;
-        
-    }
-    
-    else {
-    
-        proxy = YES;
-        
-    }
-    
-    
-    
-    return proxy;
-    
-}
+//- (BOOL)hasSetProxy
+//
+//{
+//
+//    BOOL proxy = NO;
+//
+//
+//
+//    NSDictionary *proxySettings = (__bridge NSDictionary *)(CFNetworkCopySystemProxySettings());
+//
+//    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
+//
+//    NSArray *proxies = (__bridge NSArray *)(CFNetworkCopyProxiesForURL((__bridge CFURLRef)(url),
+//
+//                                                                       (__bridge CFDictionaryRef)(proxySettings)));
+//
+//    NSLog(@"proxies:%@", proxies);
+//
+//    NSDictionary *settings = proxies[0];
+//
+//    NSLog(@"kCFProxyHostNameKey: %@", [settings objectForKey:(NSString *)kCFProxyHostNameKey]);
+//
+//    NSLog(@"kCFProxyPortNumberKey: %@", [settings objectForKey:(NSString *)kCFProxyPortNumberKey]);
+//
+//    NSLog(@"kCFProxyTypeKey: %@", [settings objectForKey:(NSString *)kCFProxyTypeKey]);
+//
+//    if ([[settings objectForKey:(NSString *)kCFProxyTypeKey] isEqualToString:@"kCFProxyTypeNone"]) {
+//
+//        proxy = NO;
+//
+//    }
+//
+//    else {
+//
+//        proxy = YES;
+//
+//    }
+//
+//
+//
+//    return proxy;
+//
+//}
 
 
 
-- (BOOL)isProtocolService{
++ (BOOL)hasSetProxy{
     
 //    [self hasSetProxy];
     NSDictionary *proxySettings = (__bridge NSDictionary *)(CFNetworkCopySystemProxySettings());

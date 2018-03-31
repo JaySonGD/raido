@@ -28,6 +28,7 @@
 		69669D092048F92000E6ED1E /* WebPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69669D082048F92000E6ED1E /* WebPlayerTests.m */; };
 		69669D142048F92000E6ED1E /* WebPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69669D132048F92000E6ED1E /* WebPlayerUITests.m */; };
 		69669D23204913B800E6ED1E /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 69669D21204913B700E6ED1E /* UIAlertController+Blocks.m */; };
+		69A40D79206F6F0A00CCFA88 /* TTZAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A40D78206F6F0A00CCFA88 /* TTZAppConfig.m */; };
 		69D035EF2068EFD200258626 /* TTZPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D035EE2068EFD200258626 /* TTZPlayer.m */; };
 		69D035F22069093500258626 /* UINavigationController+FullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D035F12069093400258626 /* UINavigationController+FullscreenPopGesture.m */; };
 		852118226FD164F536CA704C /* libPods-WebPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68145941F7FE9A1D26C7ED3F /* libPods-WebPlayer.a */; };
@@ -54,7 +55,6 @@
 		AB68336A204ED833000BB617 /* RadioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB683366204ED801000BB617 /* RadioCell.xib */; };
 		AB784372206773D100DEFB12 /* TTZTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB784371206773D100DEFB12 /* TTZTVController.m */; };
 		AB8FB9972065F00A00D970BB /* NSObject+StatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8FB9962065F00A00D970BB /* NSObject+StatusBar.m */; };
-		AB8FB99A2065F09A00D970BB /* TTZDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8FB9992065F09A00D970BB /* TTZDataService.m */; };
 		AB8FB9A32065F44A00D970BB /* TTZBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8FB9A02065F24300D970BB /* TTZBannerView.m */; };
 		AB8FB9A620660F2600D970BB /* LBLADMob.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8FB9A420660F2600D970BB /* LBLADMob.m */; };
 		BBCB1E90B1C34CDD717DD189 /* libPods-WebPlayerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 898667A6D1CC0A5621B67205 /* libPods-WebPlayerUITests.a */; };
@@ -126,6 +126,8 @@
 		69669D152048F92000E6ED1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69669D21204913B700E6ED1E /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		69669D22204913B700E6ED1E /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
+		69A40D77206F6F0A00CCFA88 /* TTZAppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTZAppConfig.h; sourceTree = "<group>"; };
+		69A40D78206F6F0A00CCFA88 /* TTZAppConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTZAppConfig.m; sourceTree = "<group>"; };
 		69D035ED2068EFD000258626 /* TTZPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTZPlayer.h; sourceTree = "<group>"; };
 		69D035EE2068EFD200258626 /* TTZPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZPlayer.m; sourceTree = "<group>"; };
 		69D035F02069093300258626 /* UINavigationController+FullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FullscreenPopGesture.h"; sourceTree = "<group>"; };
@@ -174,8 +176,6 @@
 		AB784371206773D100DEFB12 /* TTZTVController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTZTVController.m; sourceTree = "<group>"; };
 		AB8FB9952065F00A00D970BB /* NSObject+StatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+StatusBar.h"; sourceTree = "<group>"; };
 		AB8FB9962065F00A00D970BB /* NSObject+StatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+StatusBar.m"; sourceTree = "<group>"; };
-		AB8FB9982065F09A00D970BB /* TTZDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTZDataService.h; sourceTree = "<group>"; };
-		AB8FB9992065F09A00D970BB /* TTZDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTZDataService.m; sourceTree = "<group>"; };
 		AB8FB99F2065F24300D970BB /* TTZBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTZBannerView.h; sourceTree = "<group>"; };
 		AB8FB9A02065F24300D970BB /* TTZBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTZBannerView.m; sourceTree = "<group>"; };
 		AB8FB9A420660F2600D970BB /* LBLADMob.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBLADMob.m; sourceTree = "<group>"; };
@@ -437,8 +437,8 @@
 				AB6094C62067DA490040F003 /* TTZViewController.m */,
 				AB683363204ECCB4000BB617 /* TTZNavigationController.h */,
 				AB683364204ECCB4000BB617 /* TTZNavigationController.m */,
-				AB8FB9982065F09A00D970BB /* TTZDataService.h */,
-				AB8FB9992065F09A00D970BB /* TTZDataService.m */,
+				69A40D77206F6F0A00CCFA88 /* TTZAppConfig.h */,
+				69A40D78206F6F0A00CCFA88 /* TTZAppConfig.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -793,11 +793,11 @@
 				69669CFF2048F92000E6ED1E /* main.m in Sources */,
 				AB1684D5205034F80099DFA8 /* CALayer+PauseAimate.m in Sources */,
 				69669CF12048F92000E6ED1E /* AppDelegate.m in Sources */,
-				AB8FB99A2065F09A00D970BB /* TTZDataService.m in Sources */,
 				AB784372206773D100DEFB12 /* TTZTVController.m in Sources */,
 				AB8FB9A620660F2600D970BB /* LBLADMob.m in Sources */,
 				6965950E2060EB5F008C79DD /* TTZResultsController.m in Sources */,
 				69D035F22069093500258626 /* UINavigationController+FullscreenPopGesture.m in Sources */,
+				69A40D79206F6F0A00CCFA88 /* TTZAppConfig.m in Sources */,
 				694C1628206E297900561A5D /* gggViewController.m in Sources */,
 				696595112060F03D008C79DD /* TTZHKTVViewController.m in Sources */,
 				AB10F1D9204D8A5D00D2D44A /* ZZYueYuTV.m in Sources */,

@@ -10,11 +10,9 @@
 
 @interface YPNetService : NSObject
 
-+ (instancetype)shareInstance;
-
 /**
  *  判断是否为代理服务器
  */
-- (BOOL)isProtocolService;
++ (BOOL)hasSetProxy;
 
 @end

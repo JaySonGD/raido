@@ -2,34 +2,33 @@
 
 #import "LBLADMob.h"
 #import "common.h"
+#import "TTZAppConfig.h"
 
-
-
-#ifdef DEBUG
-
-
-
-// 测试 应用ID
-#define kGoogleMobileAdsAppID @"ca-app-pub-3940256099942544~1458002511"
-
-//插页式广告ID
-#define kGoogleMobileAdsInterstitialID @"ca-app-pub-3940256099942544/4411468910"
-
-//横幅广告ID
-#define kGoogleMobileAdsBannerID  @"ca-app-pub-3940256099942544/6300978111"
-
-#else
-
-//// 应用ID
-//#define kGoogleMobileAdsAppID @"ca-app-pub-8803735862522697~8253379170"
+//#ifdef DEBUG
+//
+//
+//
+//// 测试 应用ID
+//#define kGoogleMobileAdsAppID @"ca-app-pub-3940256099942544~1458002511"
 //
 ////插页式广告ID
-//#define kGoogleMobileAdsInterstitialID @"ca-app-pub-8803735862522697/1432819955"
+//#define kGoogleMobileAdsInterstitialID @"ca-app-pub-3940256099942544/4411468910"
 //
 ////横幅广告ID
-//#define kGoogleMobileAdsBannerID @"ca-app-pub-8803735862522697/1304827447"
-
-#endif
+//#define kGoogleMobileAdsBannerID  @"ca-app-pub-3940256099942544/6300978111"
+//
+//#else
+//
+////// 应用ID
+////#define kGoogleMobileAdsAppID @"ca-app-pub-8803735862522697~8253379170"
+////
+//////插页式广告ID
+////#define kGoogleMobileAdsInterstitialID @"ca-app-pub-8803735862522697/1432819955"
+////
+//////横幅广告ID
+////#define kGoogleMobileAdsBannerID @"ca-app-pub-8803735862522697/1304827447"
+//
+//#endif
 
 static LBLADMob *instance = nil;
 
@@ -70,11 +69,11 @@ static LBLADMob *instance = nil;
 
 + (void)initAdMob{
     
-    LBLADMob.sharedInstance.isRemoveAd = YES;
+    LBLADMob.sharedInstance.isRemoveAd = [TTZAppConfig defaultConfig].isRemoveAd;
     
     if(LBLADMob.sharedInstance.isRemoveAd) return;
 
-    [GADMobileAds configureWithApplicationID:kGoogleMobileAdsAppID];
+    [GADMobileAds configureWithApplicationID:[TTZAppConfig defaultConfig].googleMobileAdsAppID];
 }
 
 - (void)GADLoadInterstitial {
@@ -84,7 +83,7 @@ static LBLADMob *instance = nil;
     
     if (self.interstitial.isReady) return;
     
-    GADInterstitial *gjs_interstitial = [[GADInterstitial alloc] initWithAdUnitID:kGoogleMobileAdsInterstitialID];
+    GADInterstitial *gjs_interstitial = [[GADInterstitial alloc] initWithAdUnitID:[TTZAppConfig defaultConfig].googleMobileAdsInterstitialID];
     
     self.interstitial = gjs_interstitial;
     
@@ -141,7 +140,7 @@ static LBLADMob *instance = nil;
     
     gjs_bannerView.adSize = kGADAdSizeSmartBannerPortrait;
     
-    gjs_bannerView.adUnitID = kGoogleMobileAdsBannerID;
+    gjs_bannerView.adUnitID = [TTZAppConfig defaultConfig].googleMobileAdsBannerID;
     
     [gjs_bannerView loadRequest:gjs_request];
     
@@ -165,7 +164,7 @@ static LBLADMob *instance = nil;
     
     gjs_bannerView.adSize = kGADAdSizeSmartBannerPortrait;
     
-    gjs_bannerView.adUnitID = kGoogleMobileAdsBannerID;
+    gjs_bannerView.adUnitID = [TTZAppConfig defaultConfig].googleMobileAdsBannerID;
     
     [gjs_bannerView loadRequest:gjs_request];
     
