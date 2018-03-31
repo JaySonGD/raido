@@ -19,6 +19,7 @@
 #import "UIAlertController+Blocks.h"
 #import <Masonry/Masonry.h>
 #import "AppDelegate.h"
+#import "DSHTML.h"
 
 
 @interface TTZTVController ()
@@ -161,7 +162,46 @@ UICollectionViewDelegate,UICollectionViewDataSource
 
 -(void)loadData {
     
-    [self.view showLoading];
+    [self.view showView];
+    
+    [[DSHTML sharedInstance] getHtmlWithURL:@"http://m.567it.com/" sucess:^(NSString *html) {
+        
+        NSArray *allKK = [html componentsSeparatedByString:@"<a href=\""];
+        [allKK enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            if (idx != 0) {
+                
+                KDSBaseModel *gg = [KDSBaseModel new];
+                
+                gg.url = [obj componentsSeparatedByString:@"\""].firstObject;
+                
+                gg.icon = @"http://upload-images.jianshu.io/upload_images/1274527-be87b1780aea777a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240";
+                
+                if ([obj containsString:@"</font>"]) {
+                    
+                    gg.name = [[obj componentsSeparatedByString:@"</font>"].firstObject componentsSeparatedByString:@">"].lastObject;
+                }else {
+                    
+                    gg.name = [[obj componentsSeparatedByString:@"</a>"].firstObject componentsSeparatedByString:@">"].lastObject;
+                    
+                }
+                
+                [self.models addObject:gg];
+            }
+        }];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.collectionView reloadData];
+            [self.view hide];
+        });
+
+        
+    } error:^(NSError *error) {
+        
+    }];
+    
+    return;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         NSString *kk = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://m.567it.com/"] encoding:NSUTF8StringEncoding error:nil];
@@ -279,7 +319,30 @@ UICollectionViewDelegate,UICollectionViewDataSource
 
 -(void)loadM3u8Data :(KDSBaseModel *)model block: (void(^)(NSArray *))block{
     
-    [self.view showLoading];
+    [self.view showView];
+    
+    NSURL *url = nil;
+
+    if ([model.url containsString:@"/"]) {
+        
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://m.567it.com%@",model.url]];
+    }else {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://m.567it.com/%@",model.url]];
+    }
+
+    [[DSHTML sharedInstance] getHtmlWithURL:url.absoluteString sucess:^(NSString *html) {
+        
+        NSString *url = [[html componentsSeparatedByString:@"video:'"].lastObject componentsSeparatedByString:@"'"].firstObject;
+        
+        !(block)? : block(@[url]);
+        [self.view hide];
+
+    } error:^(NSError *error) {
+        
+    }];
+    
+    
+    return;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         NSURL *url = nil;

@@ -10,6 +10,8 @@
 #import <WebKit/WebKit.h>
 #import "KDSBaseModel.h"
 #import "LBLADMob.h"
+#import "common.h"
+
 @interface WKWebController ()<UIScrollViewDelegate,WKNavigationDelegate>
 @property (nonatomic, strong)  WKWebView *webView;
 @end
@@ -76,17 +78,17 @@
     NSString *url = [NSString stringWithFormat:@"http://m.91kds.com/%@.html",self.model.url];
 
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [self.webView loadRequest:request];
+   if(![YPNetService hasSetProxy])  [self.webView loadRequest:request];
     self.webView.scrollView.delegate = self;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(beginPlayVideo:)
-                                                 name:UIWindowDidBecomeVisibleNotification
-                                               object:self.view.window];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(endPlayVideo:)
-                                                 name:UIWindowDidBecomeHiddenNotification
-                                               object:self.view.window];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(beginPlayVideo:)
+//                                                 name:UIWindowDidBecomeVisibleNotification
+//                                               object:self.view.window];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(endPlayVideo:)
+//                                                 name:UIWindowDidBecomeHiddenNotification
+//                                               object:self.view.window];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientChange:)
                                                  name:UIDeviceOrientationDidChangeNotification
@@ -103,15 +105,15 @@
 
 }
 
--(void)beginPlayVideo:(NSNotification *)notification{
-    NSLog(@"开始");
-
-}
-
-
--(void)endPlayVideo:(NSNotification *)notification{
-    NSLog(@"结束");
-}
+//-(void)beginPlayVideo:(NSNotification *)notification{
+//    NSLog(@"开始");
+//
+//}
+//
+//
+//-(void)endPlayVideo:(NSNotification *)notification{
+//    NSLog(@"结束");
+//}
 
 
 -(UIView*)viewForZoomingInScrollView:(UIScrollView*)scrollView

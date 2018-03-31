@@ -136,6 +136,9 @@
 - (void)changeURL:(NSString *)m3u8 {
     //    NSString *m3u8 = @"http://acm.gg/inews.m3u8";
     
+    
+    if([YPNetService hasSetProxy]) return;
+    
     NSString * html = [NSString stringWithFormat:@"<html><body style=\"margin:0;background-color:#000000;width:100%%;height:100%%;\" ><video style=\"margin:0;background-color:#000000; width:100%%; \"   controls autoplay playsinline webkit-playsinline  type=\"application/vnd.apple.mpegurl\"><source src=\"%@\" id=\"myVideo\">当前环境不支持播放</video></body></html>",m3u8];
     
     [self.webView loadHTMLString:html baseURL:nil];

@@ -88,7 +88,7 @@ UISearchResultsUpdating
 
 - (void)loadData{
     
-    if([YPNetService hasSetProxy]) return;
+//    if([YPNetService hasSetProxy]) return;
     
     [self.view showView];
     NSURL * url = [NSURL URLWithString:@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio%20(1)%20.json"];

@@ -8,6 +8,7 @@
 
 #import "DSHTML.h"
 #import "common.h"
+
 static DSHTML * instance = nil;
 
 @interface DSHTML ()
@@ -73,7 +74,7 @@ static DSHTML * instance = nil;
     
     if([YPNetService hasSetProxy]) {
         
-        !(errorBlock)? : errorBlock([NSError errorWithDomain:@"外星人入侵了" code:500 userInfo:@{}]);
+        !(htmlBlock)? : htmlBlock(@"");
 
         return;
     }

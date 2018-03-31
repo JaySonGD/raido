@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-UltraLight</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TTZProfileViewController">
             <connections>
@@ -25,8 +30,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今朝睇乜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eJ-rY-Q1s">
-                    <rect key="frame" x="30" y="88" width="130" height="39"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                    <rect key="frame" x="30" y="88" width="136" height="39"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="34"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
