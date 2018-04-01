@@ -20,6 +20,7 @@
 #import <Masonry/Masonry.h>
 #import "AppDelegate.h"
 #import "DSHTML.h"
+#import "TTZAppConfig.h"
 
 
 @interface TTZTVController ()
@@ -72,7 +73,6 @@ UICollectionViewDelegate,UICollectionViewDataSource
     [self loadData];
     
     if (![LBLADMob sharedInstance].isRemoveAd) {
-        
         [[LBLADMob sharedInstance] GADInterstitialWithVC:weakSelf];
         [LBLADMob GADBannerViewNoTabbarHeightWithVC:weakSelf];
         int adH = IS_PAD?90:50;
@@ -162,7 +162,7 @@ UICollectionViewDelegate,UICollectionViewDataSource
 
 -(void)loadData {
     
-    [self.view showView];
+    [self.view showHud];
     
     [[DSHTML sharedInstance] getHtmlWithURL:@"http://m.567it.com/" sucess:^(NSString *html) {
         
@@ -193,76 +193,17 @@ UICollectionViewDelegate,UICollectionViewDataSource
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.collectionView reloadData];
-            [self.view hide];
+            [self.view hideHud];
         });
 
         
     } error:^(NSError *error) {
-        
-    }];
-    
-    return;
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        NSString *kk = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://m.567it.com/"] encoding:NSUTF8StringEncoding error:nil];
-        
-        NSArray *allKK = [kk componentsSeparatedByString:@"<a href=\""];
-        
-        
-        [allKK enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            if (idx != 0) {
-                
-                KDSBaseModel *gg = [KDSBaseModel new];
-                
-                gg.url = [obj componentsSeparatedByString:@"\""].firstObject;
-                
-                gg.icon = @"http://upload-images.jianshu.io/upload_images/1274527-be87b1780aea777a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240";
-                
-                if ([obj containsString:@"</font>"]) {
-                    
-                    gg.name = [[obj componentsSeparatedByString:@"</font>"].firstObject componentsSeparatedByString:@">"].lastObject;
-                }else {
-                    
-                    gg.name = [[obj componentsSeparatedByString:@"</a>"].firstObject componentsSeparatedByString:@">"].lastObject;
-                    
-                }
-                
-                [self.models addObject:gg];
-            }
-        }];
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [self.collectionView reloadData];
-            [self.view hideLoading:nil];
+            [self.view hideHud];
         });
-    });
+    }];
 }
 
-
-//
-//- (void)loadRData{
-//    __weak typeof(self) weakSelf = self;
-//
-//
-//    [ZZYueYuTV getHKTVPage:self.page block:^(NSArray<NSDictionary *> *obj) {
-//        NSLog(@"%s", __func__);
-//
-//        [weakSelf.collectionView.mj_header endRefreshing];
-//        [weakSelf.collectionView.mj_footer endRefreshing];
-//
-//        NSArray *models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:obj];
-//        if (weakSelf.page == 1) {
-//            weakSelf.models = models.mutableCopy;
-//        }else{
-//            [weakSelf.models addObjectsFromArray:models];
-//        }
-//        weakSelf.page += (models.count > 0);
-//        [weakSelf.collectionView reloadData];
-//
-//    }];
-//}
 
 #pragma mark  -  UICollectionViewDelegate
 
@@ -307,7 +248,7 @@ UICollectionViewDelegate,UICollectionViewDataSource
     [UIAlertController showAlertInViewController:self withTitle:@"" message:@"好评后才能观看哦！立即给我好评。" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
         
         if(buttonIndex != controller.cancelButtonIndex){
-            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1359761086?action=write-review"]];
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[TTZAppConfig defaultConfig].leaveReviewURL]];
             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             appDelegate.beginTime = [NSDate date];
         }
@@ -319,7 +260,7 @@ UICollectionViewDelegate,UICollectionViewDataSource
 
 -(void)loadM3u8Data :(KDSBaseModel *)model block: (void(^)(NSArray *))block{
     
-    [self.view showView];
+    [self.view showHud];
     
     NSURL *url = nil;
 
@@ -334,39 +275,17 @@ UICollectionViewDelegate,UICollectionViewDataSource
         
         NSString *url = [[html componentsSeparatedByString:@"video:'"].lastObject componentsSeparatedByString:@"'"].firstObject;
         
-        !(block)? : block(@[url]);
-        [self.view hide];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !(block)? : block(@[url]);
+            [self.view hideHud];
+        });
 
     } error:^(NSError *error) {
-        
-    }];
-    
-    
-    return;
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        NSURL *url = nil;
-        
-        if ([model.url containsString:@"/"]) {
-            
-            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://m.567it.com%@",model.url]];
-            
-        }else {
-            
-            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://m.567it.com/%@",model.url]];
-        }
-        
-        NSString *kk = [[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            NSString *url = [[kk componentsSeparatedByString:@"video:'"].lastObject componentsSeparatedByString:@"'"].firstObject;
-            
-            !(block)? : block(@[url]);
-            [self.view hideLoading:nil];
-            
+            [self.view hideHud];
         });
-    });
+
+    }];
 }
 
 

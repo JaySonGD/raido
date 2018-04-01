@@ -7,7 +7,6 @@
 //
 
 #import "TTZAppConfig.h"
-
 static TTZAppConfig *instance = nil;
 #ifdef DEBUG
 // 测试 应用ID
@@ -16,18 +15,18 @@ static TTZAppConfig *instance = nil;
 #define kGoogleMobileAdsInterstitialID @"ca-app-pub-3940256099942544/4411468910"
 //横幅广告ID
 #define kGoogleMobileAdsBannerID  @"ca-app-pub-3940256099942544/6300978111"
-
 #else
-//// 应用ID
-//#define kGoogleMobileAdsAppID @"ca-app-pub-8803735862522697~8253379170"
-//
-////插页式广告ID
-//#define kGoogleMobileAdsInterstitialID @"ca-app-pub-8803735862522697/1432819955"
-//
-////横幅广告ID
-//#define kGoogleMobileAdsBannerID @"ca-app-pub-8803735862522697/1304827447"
-
+// 应用ID
+#define kGoogleMobileAdsAppID @"ca-app-pub-8803735862522697~8253379170"
+//插页式广告ID
+#define kGoogleMobileAdsInterstitialID @"ca-app-pub-8803735862522697/1432819955"
+//横幅广告ID
+#define kGoogleMobileAdsBannerID @"ca-app-pub-8803735862522697/1304827447"
 #endif
+#define kMail @"853945995@qq.com"
+#define kCoffeeURL @"https://www.baidu.com/"
+#define kLeaveReviewURL @"itms-apps://itunes.apple.com/app/id1297897150?action=write-review"
+#define kShareURL @"https://itunes.apple.com/cn/app/%E9%A6%99%E6%B8%AF%E7%94%B5%E5%8F%B0-%E9%A6%99%E6%B8%AF%E5%B9%BF%E6%92%AD%E7%94%B5%E5%8F%B0-hk-radio-%E8%A6%81%E5%90%AC%E5%90%AC%E9%A6%99%E6%B8%AF%E6%94%B6%E9%9F%B3%E6%9C%BA/id1297897150?mt=8&uo=4"
 
 @implementation TTZAppConfig
 
@@ -59,7 +58,8 @@ static TTZAppConfig *instance = nil;
 
 - (BOOL)isRemoveAd{
     BOOL isRemoveAd =  [[[NSUserDefaults standardUserDefaults] objectForKey:@"isRemoveAd"] boolValue];
-    return isRemoveAd? isRemoveAd : NO;
+//    return isRemoveAd? isRemoveAd : NO;
+    return NO;
 }
 
 - (NSString *)googleMobileAdsAppID{
@@ -81,22 +81,22 @@ static TTZAppConfig *instance = nil;
 
 - (NSString *)mail{
     NSString * mail =  [[NSUserDefaults standardUserDefaults] stringForKey:@"mail"];
-    return mail.length? mail : @"853945995@qq.com";
+    return mail.length? mail : kMail;
 }
 
 - (NSString *)leaveReviewURL{
     NSString * url =  [[NSUserDefaults standardUserDefaults] stringForKey:@"leaveReviewURL"];
-    return url.length? url : @"itms-apps://itunes.apple.com/app/id1297897150?action=write-review";
+    return url.length? url : kLeaveReviewURL;
 }
 
 - (NSString *)shareURL{
     NSString * url =  [[NSUserDefaults standardUserDefaults] stringForKey:@"shareURL"];
-    return url.length? url : @"https://itunes.apple.com/cn/app/%E9%A6%99%E6%B8%AF%E7%94%B5%E5%8F%B0-%E9%A6%99%E6%B8%AF%E5%B9%BF%E6%92%AD%E7%94%B5%E5%8F%B0-hk-radio-%E8%A6%81%E5%90%AC%E5%90%AC%E9%A6%99%E6%B8%AF%E6%94%B6%E9%9F%B3%E6%9C%BA/id1297897150?mt=8&uo=4";
+    return url.length? url : kShareURL;
 }
 
 - (NSString *)coffeeURL{
     NSString * url =  [[NSUserDefaults standardUserDefaults] stringForKey:@"coffeeURL"];
-    return url.length? url : @"https://www.baidu.com/";
+    return url.length? url : kCoffeeURL;
 }
 
 @end

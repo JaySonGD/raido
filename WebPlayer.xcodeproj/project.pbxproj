@@ -13,7 +13,6 @@
 		694C161C206DE69000561A5D /* TTZKDSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C161B206DE69000561A5D /* TTZKDSController.m */; };
 		694C161F206E013900561A5D /* TTZProvinceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C161E206E013900561A5D /* TTZProvinceController.m */; };
 		694C1622206E061D00561A5D /* WKWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C1621206E061D00561A5D /* WKWebController.m */; };
-		694C1628206E297900561A5D /* gggViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C1627206E297900561A5D /* gggViewController.m */; };
 		696595082060E2D2008C79DD /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 696595072060E2D2008C79DD /* UIColor+Image.m */; };
 		6965950B2060E322008C79DD /* UIImage+Radius.m in Sources */ = {isa = PBXBuildFile; fileRef = 6965950A2060E322008C79DD /* UIImage+Radius.m */; };
 		6965950E2060EB5F008C79DD /* TTZResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6965950D2060EB5F008C79DD /* TTZResultsController.m */; };
@@ -44,6 +43,7 @@
 		AB10F1E6204D8EF400D2D44A /* GJWClassifyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10F1E5204D8EF400D2D44A /* GJWClassifyCell.m */; };
 		AB10F1E9204D912200D2D44A /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10F1E7204D912200D2D44A /* UIView+Extension.m */; };
 		AB10F1EA204D918800D2D44A /* GJWClassifyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB10F1E3204D8EF400D2D44A /* GJWClassifyCell.xib */; };
+		AB15442120708F6500E0F349 /* TTZData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB15442020708F6500E0F349 /* TTZData.m */; };
 		AB1684D220502FB70099DFA8 /* UIView+PulseView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1684D120502FB70099DFA8 /* UIView+PulseView.m */; };
 		AB1684D5205034F80099DFA8 /* CALayer+PauseAimate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1684D4205034F80099DFA8 /* CALayer+PauseAimate.m */; };
 		AB6094C72067DA490040F003 /* TTZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6094C62067DA490040F003 /* TTZViewController.m */; };
@@ -96,8 +96,6 @@
 		694C161E206E013900561A5D /* TTZProvinceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTZProvinceController.m; sourceTree = "<group>"; };
 		694C1620206E061D00561A5D /* WKWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebController.h; sourceTree = "<group>"; };
 		694C1621206E061D00561A5D /* WKWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebController.m; sourceTree = "<group>"; };
-		694C1626206E297900561A5D /* gggViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gggViewController.h; sourceTree = "<group>"; };
-		694C1627206E297900561A5D /* gggViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gggViewController.m; sourceTree = "<group>"; };
 		696595062060E2D2008C79DD /* UIColor+Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
 		696595072060E2D2008C79DD /* UIColor+Image.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
 		696595092060E322008C79DD /* UIImage+Radius.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Radius.h"; sourceTree = "<group>"; };
@@ -155,6 +153,8 @@
 		AB10F1E5204D8EF400D2D44A /* GJWClassifyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJWClassifyCell.m; sourceTree = "<group>"; };
 		AB10F1E7204D912200D2D44A /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		AB10F1E8204D912200D2D44A /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		AB15441F20708F6500E0F349 /* TTZData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTZData.h; sourceTree = "<group>"; };
+		AB15442020708F6500E0F349 /* TTZData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTZData.m; sourceTree = "<group>"; };
 		AB1684D020502FB70099DFA8 /* UIView+PulseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+PulseView.h"; sourceTree = "<group>"; };
 		AB1684D120502FB70099DFA8 /* UIView+PulseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+PulseView.m"; sourceTree = "<group>"; };
 		AB1684D3205034F80099DFA8 /* CALayer+PauseAimate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+PauseAimate.h"; sourceTree = "<group>"; };
@@ -365,6 +365,8 @@
 				69D035EE2068EFD200258626 /* TTZPlayer.m */,
 				AB10F1CF204D8A5C00D2D44A /* ZZYueYuTV.h */,
 				AB10F1CB204D8A5B00D2D44A /* ZZYueYuTV.m */,
+				AB15441F20708F6500E0F349 /* TTZData.h */,
+				AB15442020708F6500E0F349 /* TTZData.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -413,8 +415,6 @@
 				694C161B206DE69000561A5D /* TTZKDSController.m */,
 				694C161D206E013900561A5D /* TTZProvinceController.h */,
 				694C161E206E013900561A5D /* TTZProvinceController.m */,
-				694C1626206E297900561A5D /* gggViewController.h */,
-				694C1627206E297900561A5D /* gggViewController.m */,
 			);
 			name = DS;
 			sourceTree = "<group>";
@@ -791,6 +791,7 @@
 				69669CF42048F92000E6ED1E /* ViewController.m in Sources */,
 				AB1684D220502FB70099DFA8 /* UIView+PulseView.m in Sources */,
 				69669CFF2048F92000E6ED1E /* main.m in Sources */,
+				AB15442120708F6500E0F349 /* TTZData.m in Sources */,
 				AB1684D5205034F80099DFA8 /* CALayer+PauseAimate.m in Sources */,
 				69669CF12048F92000E6ED1E /* AppDelegate.m in Sources */,
 				AB784372206773D100DEFB12 /* TTZTVController.m in Sources */,
@@ -798,7 +799,6 @@
 				6965950E2060EB5F008C79DD /* TTZResultsController.m in Sources */,
 				69D035F22069093500258626 /* UINavigationController+FullscreenPopGesture.m in Sources */,
 				69A40D79206F6F0A00CCFA88 /* TTZAppConfig.m in Sources */,
-				694C1628206E297900561A5D /* gggViewController.m in Sources */,
 				696595112060F03D008C79DD /* TTZHKTVViewController.m in Sources */,
 				AB10F1D9204D8A5D00D2D44A /* ZZYueYuTV.m in Sources */,
 				AB10F1DB204D8A5D00D2D44A /* ZZYueYUModel.m in Sources */,

@@ -76,19 +76,11 @@
     self.navigationItem.title = self.model.name;
     
     NSString *url = [NSString stringWithFormat:@"http://m.91kds.com/%@.html",self.model.url];
-
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-   if(![YPNetService hasSetProxy])  [self.webView loadRequest:request];
-    self.webView.scrollView.delegate = self;
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(beginPlayVideo:)
-//                                                 name:UIWindowDidBecomeVisibleNotification
-//                                               object:self.view.window];
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(endPlayVideo:)
-//                                                 name:UIWindowDidBecomeHiddenNotification
-//                                               object:self.view.window];
+    [self.view showHud];
+    if(![YPNetService hasSetProxy])  [self.webView loadRequest:request];
+    self.webView.scrollView.delegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientChange:)
                                                  name:UIDeviceOrientationDidChangeNotification
@@ -97,29 +89,28 @@
     if([TTZPlayer defaultPlayer].isPlaying) [[TTZPlayer defaultPlayer] pause];
     
     if (![LBLADMob sharedInstance].isRemoveAd) {
-        
         __weak typeof(self) weakSelf = self;
         [[LBLADMob sharedInstance] GADInterstitialWithVC:weakSelf];
         [LBLADMob GADBannerViewNoTabbarHeightWithVC:weakSelf];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"红包"] style:UIBarButtonItemStylePlain target:self action:@selector(showAD)];
     }
+    
+}
+#pragma mark  -  事件监听
+- (void)showAD{
+    __weak typeof(self) weakSelf = self;
+    [[LBLADMob sharedInstance] GADLoadInterstitial];
+    [[LBLADMob sharedInstance] GADInterstitialWithVC:weakSelf];
 
 }
 
-//-(void)beginPlayVideo:(NSNotification *)notification{
-//    NSLog(@"开始");
-//
-//}
-//
-//
-//-(void)endPlayVideo:(NSNotification *)notification{
-//    NSLog(@"结束");
-//}
 
-
+// FIXME: UIScrollViewDelegate
 -(UIView*)viewForZoomingInScrollView:(UIScrollView*)scrollView
 {
     return nil;
 }
+// FIXME: WKNavigationDelegate
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
     
     
@@ -129,23 +120,23 @@
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
-//- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    //- (void)webViewDidFinishLoad:(UIWebView *)webView{
     
-
+    
     
     NSMutableString *tagJS = [NSMutableString string];
     
     [tagJS appendString:@"var navbar = document.getElementsByClassName('ui-navbar')[0];"];
     [tagJS appendString:@"navbar.parentNode.removeChild(navbar);"];
-
+    
     
     [tagJS appendString:@"var search = document.getElementsByClassName('ui-input-search')[0];"];
     [tagJS appendString:@"search.parentNode.removeChild(search);"];
-
+    
     
     [tagJS appendString:@"var header = document.getElementsByClassName('ui-header')[0];"];
     [tagJS appendString:@"header.parentNode.removeChild(header);"];
-
+    
     [tagJS appendString:@"var footer = document.getElementsByClassName('ui-footer')[0];"];
     [tagJS appendString:@"footer.parentNode.removeChild(footer);"];
     // FIXME: 预告
@@ -163,7 +154,7 @@
     
     
     [webView evaluateJavaScript:tagJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
-       
+        
         NSLog(@"%s-tagJS--%@----%@", __func__,obj,error);
         
     }];
@@ -171,7 +162,7 @@
     
     NSMutableString *videoJS = [NSMutableString stringWithString:@"var video = document.getElementById('ikdsPlayer');video.setAttribute(\"webkit-playsinline\",\"\");"];
     [videoJS appendString:@"video.setAttribute(\"playsinline\",\"\");"];
-
+    
     [webView evaluateJavaScript:videoJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
         NSLog(@"%s-videoJS--%@----%@", __func__,obj,error);
     }];
@@ -183,37 +174,37 @@
     [webView evaluateJavaScript:myLiveBackJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
         NSLog(@"%s-videoJS--%@----%@", __func__,obj,error);
     }];
-
+    
     NSMutableString *bodyJS = [NSMutableString stringWithString:@"var body = document.getElementsByTagName('body')[0];"];
     [bodyJS appendString:@"body.setAttribute(\"style\",\"background-color:black\");"];
     
     [webView evaluateJavaScript:bodyJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
         NSLog(@"%s-videoJS--%@----%@", __func__,obj,error);
     }];
-
+    
     NSMutableString *pageJS = [NSMutableString stringWithString:@"var bodyc = document.getElementsByClassName('ui-body-c')[0];"];
     [pageJS appendString:@"bodyc.setAttribute(\"style\",\"padding-top: 0px;background-color:black;min-height: 0px;\");"];
-
+    
     [webView evaluateJavaScript:pageJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
         NSLog(@"%s-bodyJS--%@----%@", __func__,obj,error);
     }];
-
-
-//    NSMutableString *listviewJS = [NSMutableString stringWithString:@"var bodyc = document.getElementsByClassName('ui-listview')[0];"];
-//    [listviewJS appendString:@"listviewJS.setAttribute(\"style\",\"padding: 0px;margin: 0px;\");"];
-//
-//    [webView evaluateJavaScript:listviewJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
-//        NSLog(@"%s-bodyJS--%@----%@", __func__,obj,error);
-//    }];
-//
-//    //ui-last-child
-//    NSMutableString *lastchildJS = [NSMutableString stringWithString:@"var lastchild = document.getElementsByClassName('ui-last-child')[0];"];
-//    [lastchildJS appendString:@"lastchild.setAttribute(\"style\",\"padding: 0px;margin: 0px;\");"];
-//
-//    [webView evaluateJavaScript:lastchildJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
-//        NSLog(@"%s-bodyJS--%@----%@", __func__,obj,error);
-//    }];
-
+    
+    
+    //    NSMutableString *listviewJS = [NSMutableString stringWithString:@"var bodyc = document.getElementsByClassName('ui-listview')[0];"];
+    //    [listviewJS appendString:@"listviewJS.setAttribute(\"style\",\"padding: 0px;margin: 0px;\");"];
+    //
+    //    [webView evaluateJavaScript:listviewJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+    //        NSLog(@"%s-bodyJS--%@----%@", __func__,obj,error);
+    //    }];
+    //
+    //    //ui-last-child
+    //    NSMutableString *lastchildJS = [NSMutableString stringWithString:@"var lastchild = document.getElementsByClassName('ui-last-child')[0];"];
+    //    [lastchildJS appendString:@"lastchild.setAttribute(\"style\",\"padding: 0px;margin: 0px;\");"];
+    //
+    //    [webView evaluateJavaScript:lastchildJS completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+    //        NSLog(@"%s-bodyJS--%@----%@", __func__,obj,error);
+    //    }];
+    
     
     NSMutableString *uicontentJS = [NSMutableString stringWithString:@"var uicontent = document.getElementsByClassName('ui-content')[0];"];
     [uicontentJS appendString:@"uicontent.setAttribute(\"style\",\"padding-top: 0px; background-color: black; min-height: 0px;\");"];
@@ -222,16 +213,17 @@
         NSLog(@"%s-uicontentJS--%@----%@", __func__,obj,error);
         [UIView animateWithDuration:0.25 animations:^{
             webView.alpha = 1.0;
+            [self.view hideHud];
         }];
     }];
-
     
-
     
-
+    
+    
+    
     NSLog(@"%s--%@", __func__,webView.URL.absoluteString);
-
-
+    
+    
 }
 
 

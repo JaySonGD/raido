@@ -22,6 +22,7 @@
 #import "UIAlertController+Blocks.h"
 #import <Masonry/Masonry.h>
 #import "AppDelegate.h"
+#import "TTZAppConfig.h"
 
 @interface TTZHKTVViewController ()
 <
@@ -167,7 +168,7 @@ UICollectionViewDelegate,UICollectionViewDataSource
     formatter.dateFormat = @"dd";
     NSInteger dd = [[formatter stringFromDate:date] integerValue];
     
-    NSString *Id = [NSString stringWithFormat:@"hk-%ld-tv",yyyy+mm+dd];
+    NSString *Id = [NSString stringWithFormat:@"hk-%d-tv",yyyy+mm+dd];
     
     
     if ([self.tf.text isEqualToString:Id]) {
@@ -261,7 +262,7 @@ UICollectionViewDelegate,UICollectionViewDataSource
     [UIAlertController showAlertInViewController:self withTitle:@"" message:@"好评后才能观看哦！立即给我好评。" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
         
         if(buttonIndex != controller.cancelButtonIndex){
-            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1359761086?action=write-review"]];
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[TTZAppConfig defaultConfig].leaveReviewURL]];
             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             appDelegate.beginTime = [NSDate date];
         }

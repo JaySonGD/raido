@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-UltraLight</string>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-BoldItalic</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TTZProfileViewController">
             <connections>
                 <outlet property="bgIV" destination="YgZ-4b-hZ4" id="efa-8z-p5C"/>
+                <outlet property="logoIV" destination="s9y-GD-wfx" id="vXL-BV-3sJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,85 +31,105 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今朝睇乜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eJ-rY-Q1s">
-                    <rect key="frame" x="30" y="88" width="136" height="39"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="34"/>
+                    <rect key="frame" x="30" y="69" width="136" height="40"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="34"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.1 by TTZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyZ-lk-DOO">
-                    <rect key="frame" x="30" y="142.66666666666666" width="87" height="20.333333333333343"/>
+                    <rect key="frame" x="30" y="117" width="87" height="20.333333333333343"/>
                     <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.88627450980392153" green="0.90196078431372551" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-Hw-0vC">
-                    <rect key="frame" x="30" y="200" width="315" height="153"/>
-                    <string key="text">绕过WTO机制采取行动，有导致贸易纷争升级的风险，进而破坏贸易体系的稳定性，最终没有赢家。
+                    <rect key="frame" x="30" y="168" width="315" height="133.66666666666669"/>
+                    <string key="text">睇乜是一款为广大用户了解港台时事，剧集资讯与世界大事小事的应用小工具。
 
-但在这场会议上，美国代表向中国提出了另一个要求。
+你可以搜索与分享喜欢的节目资讯。
 
-美国：要求中国取消“洋垃圾”进口禁令</string>
+这个一款个人作品，希望多多支持，更多更完善的功能正在设计与开放中。</string>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.8862745098" green="0.90196078430000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKJ-1T-4eZ">
-                    <rect key="frame" x="36" y="369" width="135" height="34"/>
+                    <rect key="frame" x="36" y="317.66666666666669" width="135" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <state key="normal" title=" ☕️  请我喝咖啡 "/>
+                    <state key="normal" title=" ☕️  请我喝咖啡 ">
+                        <color key="titleColor" red="0.75294117647058822" green="0.87450980392156863" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="drinkCoffee:" destination="-1" eventType="touchUpInside" id="3iQ-S7-2uH"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAg-NG-Itz">
-                    <rect key="frame" x="40.333333333333343" y="450" width="127" height="34"/>
+                    <rect key="frame" x="40.333333333333343" y="398.66666666666669" width="127" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="📧  我有的idea ">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.75294117650000003" green="0.87450980389999999" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="sendMessage:" destination="-1" eventType="touchUpInside" id="P0q-wf-4Jy"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofc-fM-f5w">
-                    <rect key="frame" x="40.666666666666657" y="408" width="126" height="34"/>
+                    <rect key="frame" x="40.666666666666657" y="356.66666666666669" width="126" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <state key="normal" title="👉  分享给好友"/>
+                    <state key="normal" title="👉  分享给好友">
+                        <color key="titleColor" red="0.75294117650000003" green="0.87450980389999999" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="shareOthers:" destination="-1" eventType="touchUpInside" id="2qV-Zq-KNW"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s9y-GD-wfx">
-                    <rect key="frame" x="249" y="74" width="96" height="96"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="s9y-GD-wfx">
+                    <rect key="frame" x="281" y="74" width="64" height="64"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="96" id="CdB-Q4-nlC"/>
-                        <constraint firstAttribute="width" constant="96" id="Zv7-iI-0XE"/>
+                        <constraint firstAttribute="height" constant="64" id="CdB-Q4-nlC"/>
+                        <constraint firstAttribute="width" constant="64" id="Zv7-iI-0XE"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGI-4E-DBK">
-                    <rect key="frame" x="39" y="489" width="130" height="34"/>
-                    <state key="normal" title="👍🏻  赏个好评吧 "/>
+                    <rect key="frame" x="39" y="437.66666666666669" width="130" height="34"/>
+                    <state key="normal" title="👍🏻  赏个好评吧 ">
+                        <color key="titleColor" red="0.75294117650000003" green="0.87450980389999999" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="goodReview:" destination="-1" eventType="touchUpInside" id="NCS-Kx-a29"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-kM-yAj">
+                    <rect key="frame" x="30" y="699" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="32c-xh-CFl"/>
+                        <constraint firstAttribute="width" constant="35" id="mAa-rj-leU"/>
+                    </constraints>
+                    <state key="normal" image="back-1"/>
+                    <connections>
+                        <action selector="back:" destination="-1" eventType="touchUpInside" id="0tP-dj-AZD"/>
                     </connections>
                 </button>
             </subviews>
             <constraints>
                 <constraint firstItem="YgZ-4b-hZ4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="0YZ-eo-ZS7"/>
                 <constraint firstItem="YgZ-4b-hZ4" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="1Iq-ak-Z15"/>
-                <constraint firstItem="CyZ-lk-DOO" firstAttribute="top" secondItem="1eJ-rY-Q1s" secondAttribute="bottom" constant="16" id="1RA-rQ-U2H"/>
+                <constraint firstItem="CyZ-lk-DOO" firstAttribute="top" secondItem="1eJ-rY-Q1s" secondAttribute="bottom" constant="8" id="1RA-rQ-U2H"/>
                 <constraint firstItem="s9y-GD-wfx" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="30" id="7AC-6h-ecW"/>
                 <constraint firstItem="bGI-4E-DBK" firstAttribute="top" secondItem="EAg-NG-Itz" secondAttribute="bottom" constant="5" id="8Yl-j4-P2F"/>
                 <constraint firstItem="M5j-Hw-0vC" firstAttribute="top" secondItem="s9y-GD-wfx" secondAttribute="bottom" constant="30" id="EFR-b6-Bse"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="aQs-kM-yAj" secondAttribute="bottom" constant="44" id="LPo-tb-FDr"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="s9y-GD-wfx" secondAttribute="trailing" constant="30" id="QF2-bA-Neu"/>
                 <constraint firstItem="CyZ-lk-DOO" firstAttribute="leading" secondItem="1eJ-rY-Q1s" secondAttribute="leading" id="ScE-ui-bEZ"/>
                 <constraint firstItem="M5j-Hw-0vC" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="Sz6-y8-igx"/>
+                <constraint firstItem="aQs-kM-yAj" firstAttribute="leading" secondItem="M5j-Hw-0vC" secondAttribute="leading" id="UZQ-2k-cTN"/>
                 <constraint firstItem="bGI-4E-DBK" firstAttribute="centerX" secondItem="EAg-NG-Itz" secondAttribute="centerX" id="bHv-Yt-nEH"/>
                 <constraint firstItem="YgZ-4b-hZ4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fGI-ly-hV3"/>
                 <constraint firstItem="ofc-fM-f5w" firstAttribute="centerX" secondItem="PKJ-1T-4eZ" secondAttribute="centerX" id="hHE-Ok-tGQ"/>
                 <constraint firstItem="ofc-fM-f5w" firstAttribute="top" secondItem="PKJ-1T-4eZ" secondAttribute="bottom" constant="5" id="rDS-mZ-b1g"/>
                 <constraint firstItem="PKJ-1T-4eZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="36" id="sa9-wd-ng6"/>
-                <constraint firstItem="1eJ-rY-Q1s" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="44" id="t2u-3W-Zvx"/>
+                <constraint firstItem="1eJ-rY-Q1s" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="25" id="t2u-3W-Zvx"/>
                 <constraint firstItem="1eJ-rY-Q1s" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="uLi-Zi-Su5"/>
                 <constraint firstItem="EAg-NG-Itz" firstAttribute="centerX" secondItem="ofc-fM-f5w" secondAttribute="centerX" id="vWJ-Y8-zi1"/>
                 <constraint firstAttribute="bottom" secondItem="YgZ-4b-hZ4" secondAttribute="bottom" id="w3c-k1-vE1"/>
@@ -122,5 +143,7 @@
     </objects>
     <resources>
         <image name="SearchBarBg" width="512" height="88"/>
+        <image name="back-1" width="32" height="32"/>
+        <image name="logo" width="1024" height="1024"/>
     </resources>
 </document>

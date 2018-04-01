@@ -18,6 +18,10 @@
 #import "common.h"
 #import "DSKT.h"
 #import "LBLADMob.h"
+#import "UIAlertController+Blocks.h"
+#import "TTZAppConfig.h"
+#import "AppDelegate.h"
+
 
 @interface TTZProvinceController ()
 <
@@ -37,9 +41,7 @@ UICollectionViewDelegate,UICollectionViewDataSource
 
 #pragma mark  -  自定义方法
 - (void)setUI{
-    
-    
-    
+
     self.view.backgroundColor = [UIColor whiteColor];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -57,7 +59,6 @@ UICollectionViewDelegate,UICollectionViewDataSource
     
     collectionView.alwaysBounceVertical = YES;
     self.collectionView = collectionView;
-    //[self loadData];
     
     if (![LBLADMob sharedInstance].isRemoveAd) {
         __weak typeof(self) weakSelf = self;
@@ -68,18 +69,6 @@ UICollectionViewDelegate,UICollectionViewDataSource
     }
     
 }
-//#pragma mark 处理网络数据
-//- (void)loadData{
-//    __weak typeof(self) weakSelf = self;
-//    [DSKT getOneProvinceAllKDSModelWithUrl:self.model.url sucess:^(NSArray<NSDictionary *> *obj) {
-//
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            weakSelf.models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:obj];
-//            [weakSelf.collectionView reloadData];
-//        });
-//
-//    }];
-//}
 
 - (void)setModels:(NSMutableArray<KDSBaseModel *> *)models
 {
@@ -110,27 +99,30 @@ UICollectionViewDelegate,UICollectionViewDataSource
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
-    KDSBaseModel *model = self.models[indexPath.item];
-    WKWebController *vc = [WKWebController new];
-    vc.model = model;
     
-    [self.presentingViewController.navigationController?self.presentingViewController.navigationController : self.navigationController pushViewController:vc animated:YES];
+    
+    if(!self.model.isReview || [[NSUserDefaults standardUserDefaults] objectForKey:@"isReview"])
+    {
+        
+        KDSBaseModel *model = self.models[indexPath.item];
+        WKWebController *vc = [WKWebController new];
+        vc.model = model;
+        
+        [self.presentingViewController.navigationController?self.presentingViewController.navigationController : self.navigationController pushViewController:vc animated:YES];
+        
+        return;
+    }
 
-    return;
-//    [self.view showLoading];
-//
-//    KDSBaseModel *model = self.models[indexPath.item];
-//
-//    [self.view showLoading];
-//    [ZZYueYuTV getTVDetail:model.url block:^(NSDictionary *obj) {
-//        NSLog(@"%s", __func__);
-//        [self.view hideLoading:nil];
-//
-//        GJWDetailController *detail = [GJWDetailController new];
-//        detail.model = [ZZYueYUModel mj_objectWithKeyValues:obj];
-//        [self.presentingViewController.navigationController pushViewController:detail animated:YES];
-//    }];
-    
+
+    [UIAlertController showAlertInViewController:self withTitle:@"" message:@"好评后才能观看哦！立即给我好评。" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+        
+        if(buttonIndex != controller.cancelButtonIndex){
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[TTZAppConfig defaultConfig].leaveReviewURL]];
+            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            appDelegate.beginTime = [NSDate date];
+        }
+        
+    }];
 }
 
 @end

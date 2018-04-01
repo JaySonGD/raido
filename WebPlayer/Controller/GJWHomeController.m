@@ -34,6 +34,7 @@
 
 #import "common.h"
 #import "CALayer+PauseAimate.h"
+#import "TTZData.h"
 
 #define kHeadViewHeight  0.01
 
@@ -52,8 +53,9 @@ UISearchResultsUpdating
 @property (nonatomic, weak) TTZResultsController *resultsController;
 
 @property (nonatomic, weak) UIButton *playView;
-
 @property (nonatomic, weak) UIImageView *imageView;
+@property (nonatomic, weak) TTZBannerView *bannerView;
+
 @end
 
 @implementation GJWHomeController
@@ -88,48 +90,64 @@ UISearchResultsUpdating
 
 - (void)loadData{
     
-//    if([YPNetService hasSetProxy]) return;
-    
-    [self.view showView];
-    NSURL * url = [NSURL URLWithString:@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio%20(1)%20.json"];
-    //创建请求
-    //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15.0];
-
-    //    User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Mobile Safari/537.36
-    
-    [request setValue:@"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Mobile Safari/537.36" forHTTPHeaderField:@"User-Agent"];
-    //创建Session
-    NSURLSession * session = [NSURLSession sharedSession];
-    //创建任务
-    NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.view hide];
-            if(error) return ;
-            NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            self.objs =[KDSBaseModel mj_objectArrayWithKeyValuesArray:[obj objectForKey:@"list"]];
-            self.banners =[KDSBaseModel mj_objectArrayWithKeyValuesArray:[obj objectForKey:@"banner"]];
-
-            [TTZAppConfig mj_objectWithKeyValues:[obj objectForKey:@"config"]];
-            
-            
-            [self initUI];
-            [self.tableView reloadData];
-
-        });
+    NSDictionary*obj = [TTZData loadDataFinish:^(NSDictionary *data) {
         
-        
+        if(!data) return ;
+        self.objs =[KDSBaseModel mj_objectArrayWithKeyValuesArray:[data objectForKey:@"list"]];
+        self.banners =[KDSBaseModel mj_objectArrayWithKeyValuesArray:[data objectForKey:@"banner"]];
+        [TTZAppConfig mj_objectWithKeyValues:[data objectForKey:@"config"]];
+        self.bannerView.models = self.banners;
+        [self.tableView reloadData];
     }];
-    //开启网络任务
-    [task resume];
     
+    self.objs =[KDSBaseModel mj_objectArrayWithKeyValuesArray:[obj objectForKey:@"list"]];
+    self.banners =[KDSBaseModel mj_objectArrayWithKeyValuesArray:[obj objectForKey:@"banner"]];
+    [self initUI];
+    
+    return;
+    
+//    if([YPNetService hasSetProxy]) return;
+//
+//    [self.view showHud];
+//    NSURL * url = [NSURL URLWithString:@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio%20(1)%20.json"];
+//    //创建请求
+//    //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15.0];
+//
+//    //    User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Mobile Safari/537.36
+//
+//    [request setValue:@"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Mobile Safari/537.36" forHTTPHeaderField:@"User-Agent"];
+//    //创建Session
+//    NSURLSession * session = [NSURLSession sharedSession];
+//    //创建任务
+//    NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.view hideHud];
+//            if(error) return ;
+//            NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+//            self.objs =[KDSBaseModel mj_objectArrayWithKeyValuesArray:[obj objectForKey:@"list"]];
+//            self.banners =[KDSBaseModel mj_objectArrayWithKeyValuesArray:[obj objectForKey:@"banner"]];
+//
+//            [TTZAppConfig mj_objectWithKeyValues:[obj objectForKey:@"config"]];
+//
+//
+//            [self initUI];
+//            [self.tableView reloadData];
+//
+//        });
+//
+//
+//    }];
+//    //开启网络任务
+//    [task resume];
+//
 }
 
 - (void)initUI{
     
     
-    self.title = @"港剧";
+    self.title = @"今朝睇乜";
     
 
 
@@ -154,10 +172,13 @@ UISearchResultsUpdating
     
         if (self.banners.count) {
             
-            UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 130)];
-            TTZBannerView *bannerView = [[TTZBannerView alloc] initWithFrame:CGRectMake(10,10, kScreenW-20, 120)];
-            kViewRadius(bannerView, 5);
+            CGFloat bannerH = 100.0 * (kScreenW-20) /320.0;
+
+            UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, bannerH + 10)];
+            TTZBannerView *bannerView = [[TTZBannerView alloc] initWithFrame:CGRectMake(10,10, kScreenW-20, bannerH)];
+            kViewRadius(bannerView, bannerH * 5.0/120.0);
             [headerView addSubview:bannerView];
+            _bannerView = bannerView;
             bannerView.models = self.banners;
             bannerView.selectItemAtIndexPath = ^(KDSBaseModel *model) {
                 [self doAction:model];
@@ -185,11 +206,11 @@ UISearchResultsUpdating
 
         if (self.banners.count) {
 
-            CGFloat bannerH = 100.0 * kScreenW /320.0;
+            CGFloat bannerH = 100.0 * (kScreenW-20) /320.0;
             headView.height += (bannerH + 10);
 
             TTZBannerView *bannerView = [[TTZBannerView alloc] initWithFrame:CGRectMake(10,10+self.searchController.searchBar.height, kScreenW-20, bannerH)];
-            kViewRadius(bannerView, 5);
+            kViewRadius(bannerView, bannerH * 5.0/120.0);
             bannerView.models = self.banners;
             bannerView.selectItemAtIndexPath = ^(KDSBaseModel *model) {
                 [self doAction:model];
@@ -219,14 +240,22 @@ UISearchResultsUpdating
     //[playView.layer startRotation];
     //[playView.layer pauseAnimate];
     self.playView = playView;
-    
+    [playView setImage:[UIImage imageNamed:@"logo"] forState:UIControlStateNormal];
+
     [playView addTarget:self action:@selector(playClick) forControlEvents:UIControlEventTouchUpInside];
     
     
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    //leftView.backgroundColor = [UIColor orangeColor];
     UIButton *logoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    logoBtn.frame = CGRectMake(0, 0, 44, 44);
-    logoBtn.backgroundColor = [UIColor orangeColor];
+    logoBtn.contentMode = UIViewContentModeScaleAspectFit;
+    logoBtn.frame = CGRectMake(0, 5, 34, 34);
+    //logoBtn.backgroundColor = [UIColor orangeColor];
     [logoBtn addTarget:self action:@selector(profileClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [logoBtn setImage:[UIImage imageNamed:@"logo"] forState:UIControlStateNormal];
+    kViewRadius(logoBtn, 8);
+    [leftView addSubview:logoBtn];
     
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
                                        initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
@@ -236,7 +265,8 @@ UISearchResultsUpdating
      *  为0；width为正数时，正好相反，相当于往左移动width数值个像素
      */
     negativeSpacer.width = -6;
-    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, [[UIBarButtonItem alloc] initWithCustomView:logoBtn], nil];
+    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, [[UIBarButtonItem alloc] initWithCustomView:leftView], nil];
+
 }
 
 - (void)profileClick{

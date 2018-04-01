@@ -79,39 +79,48 @@ static char IMAGE_VIEW_KEY;
  移除loading
  */
 - (void)removeLoading {
+    self.userInteractionEnabled = YES;
     if (self.loadingView) {
-        [self.loadingView removeFromSuperview];
-        self.loadingView = nil;
+        [UIView animateWithDuration:1.0 animations:^{
+            self.loadingView.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            [self.loadingView removeFromSuperview];
+            self.loadingView = nil;
+        }];
     }
 }
 
 - (void)hideLoading:(NSString *)msg
 {
     [self removeLoading];
-    self.userInteractionEnabled = YES;
-
     if (msg.length) {
     }
 }
 
 /////
-- (void)showView{
+- (void)showHud{
     
-    [self hide];
-    
-    
+    [self hideHud];
+
     self.imageView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.imageView.backgroundColor = [UIColor clearColor]; //背景的颜色
     self.imageView.center = self.center;
     [self addSubview:self.imageView];
     
     [self createAnimation];
+    self.userInteractionEnabled = NO;
+
 }
 
-- (void)hide{
+- (void)hideHud{
+    self.userInteractionEnabled = YES;
     if (self.imageView) {
-        [self.imageView removeFromSuperview];
-        self.imageView = nil;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.imageView.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            [self.imageView removeFromSuperview];
+            self.imageView = nil;
+        }];
     }
 }
 

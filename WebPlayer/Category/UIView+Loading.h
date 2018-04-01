@@ -24,11 +24,10 @@
 /**
  移除loading
  */
-//- (void)removeLoading;
 - (void)hideLoading:(NSString *)msg;
 
 
-- (void)showView;
-- (void)hide;
+- (void)showHud;
+- (void)hideHud;
 
 @end

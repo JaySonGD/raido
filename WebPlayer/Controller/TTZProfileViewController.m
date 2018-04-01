@@ -14,6 +14,7 @@
 
 @interface TTZProfileViewController ()<MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *bgIV;
+@property (weak, nonatomic) IBOutlet UIImageView *logoIV;
 
 @end
 
@@ -43,6 +44,10 @@
 }
 
 //FIXME:  -  事件监听
+- (IBAction)back:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (IBAction)goodReview:(UIButton *)sender {
     [self leaveReview];
@@ -75,6 +80,7 @@
     bar.barStyle = UIBarStyleBlack;
     
     [self.bgIV addSubview:bar];
+    kViewRadius(self.logoIV, 12);
 }
 
 

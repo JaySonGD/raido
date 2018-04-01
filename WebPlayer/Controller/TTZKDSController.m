@@ -94,7 +94,7 @@ UISearchResultsUpdating
         [[LBLADMob sharedInstance] GADInterstitialWithVC:weakSelf];
         [LBLADMob GADBannerViewNoTabbarHeightWithVC:weakSelf];
         int adH = IS_PAD?90:50;
-        collectionView.contentInset = UIEdgeInsetsMake(0, 0, adH+44, 0);
+        collectionView.contentInset = UIEdgeInsetsMake(0, 0, adH, 0);
     }
 }
 
@@ -179,11 +179,13 @@ UISearchResultsUpdating
 #pragma mark 处理网络数据
 - (void)loadRData{
     __weak typeof(self) weakSelf = self;
+    [self.view showHud];
     [DSKT getAll91_KDSModelSucess:^(NSArray<NSDictionary *> *obj) {
 
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:obj];
             [weakSelf.collectionView reloadData];
+            [weakSelf.view hideHud];
         });
 
     }];
@@ -231,15 +233,18 @@ UISearchResultsUpdating
     model.isReview = self.model.isReview;
 
     __weak typeof(self) weakSelf = self;
+    [self.view showHud];
+
     [DSKT getOneProvinceAllKDSModelWithUrl:model.url sucess:^(NSArray<NSDictionary *> *obj) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
     
             TTZProvinceController *vc = [TTZProvinceController new];
-            vc.models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:obj];
             vc.model = model;
+            vc.models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:obj];
             [weakSelf.navigationController pushViewController:vc animated:YES];
-            
+            [self.view hideHud];
+
         });
         
     }];
