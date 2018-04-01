@@ -126,14 +126,11 @@ UICollectionViewDelegate,UICollectionViewDataSource
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    [self.view showLoading];
+    [self.view showHud];
     
     KDSBaseModel *model = self.models[indexPath.item];
-    
-    [self.view showLoading];
     [ZZYueYuTV getTVDetail:model.url block:^(NSDictionary *obj) {
-        NSLog(@"%s", __func__);
-        [self.view hideLoading:nil];
+        [self.view hideHud];
         
         GJWDetailController *detail = [GJWDetailController new];
         detail.model = [ZZYueYUModel mj_objectWithKeyValues:obj];
@@ -147,9 +144,9 @@ UICollectionViewDelegate,UICollectionViewDataSource
     self.searchPage = 1;
     self.kw = searchBar.text;
      __weak typeof(self) weakSelf = self;
-    [self.view showLoading];
+    [self.view showHud];
     [ZZYueYuTV search:searchBar.text page:self.searchPage block:^(NSArray<NSDictionary *> *obj, BOOL hasMore) {
-        [weakSelf.view hideLoading:nil];
+        [weakSelf.view hideHud];
         weakSelf.models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:obj];
         [weakSelf.collectionView reloadData];
         if(hasMore) weakSelf.searchPage = 2;

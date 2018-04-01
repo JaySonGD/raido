@@ -15,7 +15,7 @@ pod 'AliyunPlayer_iOS/AliyunPlayerSDK'
 
 pod 'Google-Mobile-Ads-SDK'
 pod 'Masonry'
-#pod 'LYEmptyView'
+pod 'Bugly'
 
 
   # Pods for WebPlayer

@@ -334,9 +334,9 @@ UISearchResultsUpdating
         
     }else if([type isEqualToString:@"detail"]){
         
-        [self.view showLoading];
+        [self.view showHud];
         [ZZYueYuTV getTVDetail:model.url block:^(NSDictionary *obj) {
-            [self.view hideLoading:nil];
+            [self.view hideHud];
             
             GJWDetailController *detail = [GJWDetailController new];
             detail.model = [ZZYueYUModel mj_objectWithKeyValues:obj];
@@ -347,6 +347,12 @@ UISearchResultsUpdating
         
     }else if([type isEqualToString:@"html"]){
         SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:model.url]];
+        if (@available(iOS 10.0, *)) {
+            safariVC.preferredBarTintColor = kCommonColor;
+        }
+        if (@available(iOS 11.0, *)) {
+            safariVC.dismissButtonStyle = SFSafariViewControllerDismissButtonStyleClose;
+        }
         [self presentViewController:safariVC animated:YES completion:nil];
         return;
     }else if([type isEqualToString:@"kds"]){

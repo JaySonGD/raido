@@ -40,7 +40,6 @@
                             <constraint firstAttribute="width" constant="30" id="GAH-32-LRj"/>
                             <constraint firstAttribute="height" constant="30" id="Zyd-dM-gld"/>
                         </constraints>
-                        <state key="normal" image="soucang_select"/>
                         <connections>
                             <action selector="heartButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="KCy-ZS-CJO"/>
                         </connections>
@@ -95,7 +94,4 @@
             <point key="canvasLocation" x="39.5" y="112.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="soucang_select" width="64" height="64"/>
-    </resources>
 </document>

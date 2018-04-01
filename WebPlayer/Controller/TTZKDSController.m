@@ -252,30 +252,6 @@ UISearchResultsUpdating
     
 
     
-    return;
-//    if(!self.model.isReview || [[NSUserDefaults standardUserDefaults] objectForKey:@"isReview"])
-//    {
-//        [self.view showLoading];
-//        KDSBaseModel *model = self.models[indexPath.item];
-//        [ZZYueYuTV getTVDetail:model.url block:^(NSDictionary *obj) {
-//            [self.view hideLoading:nil];
-//            GJWDetailController *detail = [GJWDetailController new];
-//            detail.model = [ZZYueYUModel mj_objectWithKeyValues:obj];
-//            [self.navigationController pushViewController:detail animated:YES];
-//        }];
-//
-//        return;
-//    }
-//
-//    [UIAlertController showAlertInViewController:self withTitle:@"" message:@"好评后才能观看哦！立即给我好评。" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-//
-//        if(buttonIndex != controller.cancelButtonIndex){
-//            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1359761086?action=write-review"]];
-//            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//            appDelegate.beginTime = [NSDate date];
-//        }
-//
-//    }];
     
 }
 

@@ -32,7 +32,7 @@
 
 static LBLADMob *instance = nil;
 
-@interface LBLADMob()
+@interface LBLADMob()<GADBannerViewDelegate,GADInterstitialDelegate>
 
 @property (nonatomic, strong) GADInterstitial *interstitial;
 
@@ -86,6 +86,7 @@ static LBLADMob *instance = nil;
     GADInterstitial *gjs_interstitial = [[GADInterstitial alloc] initWithAdUnitID:[TTZAppConfig defaultConfig].googleMobileAdsInterstitialID];
     
     self.interstitial = gjs_interstitial;
+    self.interstitial.delegate = self;
     
     GADRequest *gjs_request = [GADRequest request];
     
@@ -137,6 +138,7 @@ static LBLADMob *instance = nil;
     GADBannerView *gjs_bannerView = [[GADBannerView alloc] initWithAdSize:GADAdSizeFromCGSize(CGSizeMake(kScreenW, pointY)) origin:CGPointMake(0, kScreenH-pointY)];
     
     gjs_bannerView.rootViewController = VC;
+    gjs_bannerView.delegate = self.sharedInstance;
     
     gjs_bannerView.adSize = kGADAdSizeSmartBannerPortrait;
     
@@ -161,7 +163,8 @@ static LBLADMob *instance = nil;
     GADBannerView *gjs_bannerView = [[GADBannerView alloc] initWithAdSize:GADAdSizeFromCGSize(CGSizeMake(kScreenW, IS_PAD?90:50)) origin:CGPointMake(0, 0)];
     
     gjs_bannerView.rootViewController = VC;
-    
+    gjs_bannerView.delegate = self.sharedInstance;
+
     gjs_bannerView.adSize = kGADAdSizeSmartBannerPortrait;
     
     gjs_bannerView.adUnitID = [TTZAppConfig defaultConfig].googleMobileAdsBannerID;
@@ -170,4 +173,35 @@ static LBLADMob *instance = nil;
     
     [view addSubview:gjs_bannerView];
 }
+
+#pragma mark GADBannerViewDelegate
+
+/// Tells the delegate that an ad request successfully received an ad. The delegate may want to add
+/// the banner view to the view hierarchy if it hasn't been added yet.
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView{
+  NSLog(@"%s-横幅广告已经接受", __func__);
+}
+
+/// Tells the delegate that an ad request failed. The failure is normally due to network
+/// connectivity or ad availablility (i.e., no fill).
+- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error{
+    NSLog(@"%s-横幅广告接收失败：%@", __func__,error);
+}
+#pragma mark GADInterstitialDelegate
+
+/// Called when an interstitial ad request succeeded. Show it at the next transition point in your
+/// application such as when transitioning between view controllers.
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad{
+    NSLog(@"%s-插页广告已经接受", __func__);
+
+}
+
+/// Called when an interstitial ad request completed without an interstitial to
+/// show. This is common since interstitials are shown sparingly to users.
+- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error{
+    NSLog(@"%s-插页广告接收失败：%@", __func__,error);
+
+}
+
+
 @end

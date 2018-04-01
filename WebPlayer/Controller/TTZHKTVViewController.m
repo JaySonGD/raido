@@ -247,10 +247,10 @@ UICollectionViewDelegate,UICollectionViewDataSource
     
     if(!self.model.isReview || [[NSUserDefaults standardUserDefaults] objectForKey:@"isReview"])
     {
-        [self.view showLoading];
+        [self.view showHud];
         KDSBaseModel *model = self.models[indexPath.item];
         [ZZYueYuTV getTVDetail:model.url block:^(NSDictionary *obj) {
-            [self.view hideLoading:nil];
+            [self.view hideHud];
             GJWDetailController *detail = [GJWDetailController new];
             detail.model = [ZZYueYUModel mj_objectWithKeyValues:obj];
             [self.navigationController pushViewController:detail animated:YES];

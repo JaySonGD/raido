@@ -17,11 +17,11 @@ static TTZAppConfig *instance = nil;
 #define kGoogleMobileAdsBannerID  @"ca-app-pub-3940256099942544/6300978111"
 #else
 // 应用ID
-#define kGoogleMobileAdsAppID @"ca-app-pub-8803735862522697~8253379170"
+#define kGoogleMobileAdsAppID @"ca-app-pub-8803735862522697~2882119068"
 //插页式广告ID
-#define kGoogleMobileAdsInterstitialID @"ca-app-pub-8803735862522697/1432819955"
+#define kGoogleMobileAdsInterstitialID @"ca-app-pub-8803735862522697/1541117236"
 //横幅广告ID
-#define kGoogleMobileAdsBannerID @"ca-app-pub-8803735862522697/1304827447"
+#define kGoogleMobileAdsBannerID @"ca-app-pub-8803735862522697/8775350241"
 #endif
 #define kMail @"853945995@qq.com"
 #define kCoffeeURL @"https://www.baidu.com/"

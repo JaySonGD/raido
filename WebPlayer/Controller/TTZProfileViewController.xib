@@ -84,7 +84,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="s9y-GD-wfx">
-                    <rect key="frame" x="281" y="74" width="64" height="64"/>
+                    <rect key="frame" x="276" y="74" width="64" height="64"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="CdB-Q4-nlC"/>
@@ -120,7 +120,7 @@
                 <constraint firstItem="bGI-4E-DBK" firstAttribute="top" secondItem="EAg-NG-Itz" secondAttribute="bottom" constant="5" id="8Yl-j4-P2F"/>
                 <constraint firstItem="M5j-Hw-0vC" firstAttribute="top" secondItem="s9y-GD-wfx" secondAttribute="bottom" constant="30" id="EFR-b6-Bse"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="aQs-kM-yAj" secondAttribute="bottom" constant="44" id="LPo-tb-FDr"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="s9y-GD-wfx" secondAttribute="trailing" constant="30" id="QF2-bA-Neu"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="s9y-GD-wfx" secondAttribute="trailing" constant="35" id="QF2-bA-Neu"/>
                 <constraint firstItem="CyZ-lk-DOO" firstAttribute="leading" secondItem="1eJ-rY-Q1s" secondAttribute="leading" id="ScE-ui-bEZ"/>
                 <constraint firstItem="M5j-Hw-0vC" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="Sz6-y8-igx"/>
                 <constraint firstItem="aQs-kM-yAj" firstAttribute="leading" secondItem="M5j-Hw-0vC" secondAttribute="leading" id="UZQ-2k-cTN"/>

@@ -123,16 +123,15 @@ UICollectionViewDataSource>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    [self.view showLoading];
+    [self.view showHud];
     
     ZZHLSModel *omodel = self.model.hls[indexPath.item];
     [ZZYueYuTV getTVM3u8:omodel.url title:omodel.name block:^(NSArray *obj) {
         ViewController *channelVC = [ViewController new];
         channelVC.m3u8s = obj;
         channelVC.title = omodel.name;
-        //[self presentViewController:channelVC animated:YES completion:nil];
         [self.navigationController pushViewController:channelVC animated:YES];
-        [self.view hideLoading:nil];
+        [self.view hideHud];
     }];
 }
 

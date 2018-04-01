@@ -155,6 +155,12 @@
                 if(buttonIndex == controller.cancelButtonIndex) return ;
                 
                 SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:m3u8]];
+                if (@available(iOS 10.0, *)) {
+                    safariVC.preferredBarTintColor = kCommonColor;
+                }
+                if (@available(iOS 11.0, *)) {
+                    safariVC.dismissButtonStyle = SFSafariViewControllerDismissButtonStyleClose;
+                }
                 [self presentViewController:safariVC animated:YES completion:nil];
                 
                 
@@ -171,6 +177,12 @@
                 if(buttonIndex == controller.cancelButtonIndex) return ;
                 
                 SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:m3u8]];
+                if (@available(iOS 10.0, *)) {
+                    safariVC.preferredBarTintColor = kCommonColor;
+                }
+                if (@available(iOS 11.0, *)) {
+                    safariVC.dismissButtonStyle = SFSafariViewControllerDismissButtonStyleClose;
+                }
                 [self presentViewController:safariVC animated:YES completion:nil];
                 
             }];

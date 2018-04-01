@@ -8,9 +8,8 @@
 
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
+#import <Bugly/Bugly.h>
 #import "LBLADMob.h"
-
-#import "YPNetService.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +22,8 @@
     // Override point for customization after application launch.
     [self configAudioSession];
     [LBLADMob initAdMob];
-    
+    [Bugly startWithAppId:@"fe782679f0"];
+
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;

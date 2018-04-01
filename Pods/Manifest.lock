@@ -1,5 +1,6 @@
 PODS:
   - AliyunPlayer_iOS/AliyunPlayerSDK (3.3.3)
+  - Bugly (2.5.0)
   - Google-Mobile-Ads-SDK (7.28.0)
   - Masonry (1.1.0)
   - MJExtension (3.0.13)
@@ -10,6 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - AliyunPlayer_iOS/AliyunPlayerSDK
+  - Bugly
   - Google-Mobile-Ads-SDK
   - Masonry
   - MJExtension
@@ -18,12 +20,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AliyunPlayer_iOS: 390124c28b7ace9b2c634128a90b54b8d476d66c
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   Google-Mobile-Ads-SDK: 7f9bc0011df363ae5616449de3682a14c4701612
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
 
-PODFILE CHECKSUM: f513eb62f511b4365a93af31f3990209c57e64a4
+PODFILE CHECKSUM: a6de452ee0d93b25d076f19c85488d93b1c7f6b3
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.2.1
