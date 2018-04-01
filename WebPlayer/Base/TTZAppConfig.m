@@ -56,22 +56,38 @@ static TTZAppConfig *instance = nil;
     
 }
 
+
+- (BOOL)hasNewVersion{
+    //    - (BOOL)upDateAppFormAppStore:(NSString*)AppStoreVersion WithAppVersion:(NSString*)AppVersion{
+    NSString* AppVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    
+    NSMutableString *online = (NSMutableString *)[_version stringByReplacingOccurrencesOfString:@"." withString:@""];
+    NSMutableString *new = (NSMutableString *)[AppVersion stringByReplacingOccurrencesOfString:@"." withString:@""];
+    while (online.length < new.length) { [online appendString:@"0"]; }
+    while (new.length < online.length) { [new appendString:@"0"]; }
+    return [online integerValue] > [new integerValue]; // > 表示 app 需要更新
+}
+
+-(BOOL)isIsOnLine{
+        BOOL isIsOnLine =  [[[NSUserDefaults standardUserDefaults] objectForKey:@"isIsOnLine"] boolValue];
+        return isIsOnLine? isIsOnLine : NO;
+}
+
 - (BOOL)isRemoveAd{
     BOOL isRemoveAd =  [[[NSUserDefaults standardUserDefaults] objectForKey:@"isRemoveAd"] boolValue];
-//    return isRemoveAd? isRemoveAd : NO;
-    return NO;
+    return isRemoveAd? isRemoveAd : NO;
 }
 
 - (NSString *)googleMobileAdsAppID{
     NSString * googleMobileAdsAppID =  [[NSUserDefaults standardUserDefaults] stringForKey:@"googleMobileAdsAppID"];
     return googleMobileAdsAppID.length? googleMobileAdsAppID : kGoogleMobileAdsAppID;
-
+    
 }
 
 - (NSString *)googleMobileAdsInterstitialID{
     NSString * googleMobileAdsInterstitialID =  [[NSUserDefaults standardUserDefaults] stringForKey:@"googleMobileAdsInterstitialID"];
     return googleMobileAdsInterstitialID.length? googleMobileAdsInterstitialID : kGoogleMobileAdsInterstitialID;
-
+    
 }
 
 - (NSString *)googleMobileAdsBannerID{

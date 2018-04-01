@@ -124,7 +124,7 @@
     UIPopoverPresentationController *popover = alertVC.popoverPresentationController;
     if (popover) {
         popover.sourceView = self.navigationItem.rightBarButtonItem.customView;
-        popover.sourceRect = self.view.bounds;
+        popover.sourceRect = self.navigationItem.rightBarButtonItem.customView.bounds;
         [self presentViewController:alertVC animated:YES completion:nil];
     }else {
         [self presentViewController:alertVC animated:YES completion:nil];
@@ -150,7 +150,9 @@
         
         if ([m3u8 containsString:@"pan.baidu.com"]) {
             [UIAlertController showActionSheetInViewController:self withTitle:@"title" message:@"该链接为百度云连接,是否保存到百度云" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"保存"] popoverPresentationControllerBlock:^(UIPopoverPresentationController * _Nonnull popover) {
-                
+                popover.sourceView = self.navigationItem.rightBarButtonItem.customView;
+                popover.sourceRect = self.navigationItem.rightBarButtonItem.customView.bounds;
+
             } tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
                 if(buttonIndex == controller.cancelButtonIndex) return ;
                 

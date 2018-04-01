@@ -23,7 +23,11 @@
 
 @property (nonatomic, copy) NSString *coffeeURL;
 
+@property (nonatomic, copy) NSString *version;
 
+
+@property (nonatomic, assign) BOOL hasNewVersion;
+@property (nonatomic, assign) BOOL isOnLine;
 
 @property (nonatomic, copy) NSString *googleMobileAdsAppID;
 @property (nonatomic, copy) NSString *googleMobileAdsInterstitialID;

@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Bugly/Bugly.h>
 #import "LBLADMob.h"
+#import "TTZAppConfig.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +24,7 @@
     [self configAudioSession];
     [LBLADMob initAdMob];
     [Bugly startWithAppId:@"fe782679f0"];
-
+    
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
@@ -38,6 +39,33 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"isReview" forKey:@"isReview"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    
+    if ([TTZAppConfig defaultConfig].hasNewVersion) {
+        
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil
+                                                                         message:[NSString stringWithFormat:@"发现新版本:%@",[TTZAppConfig defaultConfig].version]
+                                                                  preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *cancelAction  = [UIAlertAction actionWithTitle:@"取消"
+                                                                style:UIAlertActionStyleCancel
+                                                              handler:^(UIAlertAction * _Nonnull action) {
+                                                                  NSLog(@"点击了取消");
+                                                              }];
+        
+        UIAlertAction *OKAction  = [UIAlertAction actionWithTitle:@"更新"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                              NSLog(@"点击了知道了");
+                                                              NSURL * url = [NSURL URLWithString:[TTZAppConfig defaultConfig].shareURL];
+                                                              [[UIApplication sharedApplication] openURL:url];
+                                                          }];
+        [alertVC addAction:cancelAction];
+        [alertVC addAction:OKAction];
+        [self.window.rootViewController presentViewController:alertVC animated:YES completion:nil];
+        
+    }
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -95,7 +123,7 @@
     {
         NSLog(@"begin - end");
         //[[FWPlayerKit sharedInstance] play];
-
+        
     }
 }
 

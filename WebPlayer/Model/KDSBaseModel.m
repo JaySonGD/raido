@@ -10,4 +10,8 @@
 
 @implementation KDSBaseModel
 
+- (void)setIcon:(NSString *)icon{
+    _icon = [icon containsString:@"nopic.gif"]? @"" : icon;
+}
+
 @end

@@ -13,8 +13,11 @@
 #import "common.h"
 
 @interface TTZProfileViewController ()<MFMailComposeViewControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIImageView *bgIV;
 @property (weak, nonatomic) IBOutlet UIImageView *logoIV;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *drinkCoffeeBtn;
 
 @end
 
@@ -81,6 +84,7 @@
     
     [self.bgIV addSubview:bar];
     kViewRadius(self.logoIV, 12);
+    self.drinkCoffeeBtn.hidden = self.likeBtn.hidden = ![TTZAppConfig defaultConfig].isOnLine;
 }
 
 
@@ -110,14 +114,29 @@
 
 - (void)share:(UIView *)sender{
     NSURL *url  = [NSURL URLWithString:[TTZAppConfig defaultConfig].shareURL];
-    UIActivityViewController *shareVC = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
+    UIActivityViewController *alertVC = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
     
-    if(!IS_PAD){
-        [self presentViewController:shareVC animated:YES completion:nil];
-    }else{
-        UIPopoverController *popVC = [[UIPopoverController alloc] initWithContentViewController:shareVC];
-        [popVC presentPopoverFromRect:sender.frame inView:sender permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+//    if(!IS_PAD){
+//        [self presentViewController:shareVC animated:YES completion:nil];
+//    }else{
+//        UIPopoverController *popVC = [[UIPopoverController alloc] initWithContentViewController:shareVC];
+//        popVC.
+//        [popVC presentPopoverFromRect:sender.frame inView:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//    }
+    
+    UIPopoverPresentationController *popover = alertVC.popoverPresentationController;
+    
+    if (popover) {
+        
+        popover.sourceView = sender;
+        
+        popover.sourceRect = sender.bounds;
+        
+        [self presentViewController:alertVC animated:YES completion:nil];
+    }else {
+        [self presentViewController:alertVC animated:YES completion:nil];
     }
+
 
 }
 

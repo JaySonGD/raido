@@ -94,7 +94,7 @@ UICollectionViewDelegate,UICollectionViewDataSource
     }];
     //[collectionView.mj_header beginRefreshing];
     self.page = 1;
-    
+    [self.view showHud];
     [self loadRData];
     
     if (![LBLADMob sharedInstance].isRemoveAd) {
@@ -168,7 +168,7 @@ UICollectionViewDelegate,UICollectionViewDataSource
     formatter.dateFormat = @"dd";
     NSInteger dd = [[formatter stringFromDate:date] integerValue];
     
-    NSString *Id = [NSString stringWithFormat:@"hk-%d-tv",yyyy+mm+dd];
+    NSString *Id = [NSString stringWithFormat:@"hk-%ld-tv",yyyy+mm+dd];
     
     
     if ([self.tf.text isEqualToString:Id]) {
@@ -195,6 +195,8 @@ UICollectionViewDelegate,UICollectionViewDataSource
         NSArray *models = [KDSBaseModel mj_objectArrayWithKeyValuesArray:obj];
         if (weakSelf.page == 1) {
             weakSelf.models = models.mutableCopy;
+            [weakSelf.view hideHud];
+
         }else{
             [weakSelf.models addObjectsFromArray:models];
         }
