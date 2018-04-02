@@ -111,6 +111,7 @@
         UIAlertAction *name = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self changeURL:self.m3u8s[idx]];
+            self.index = idx;
         }];
         
         [alertVC addAction:name];
@@ -149,7 +150,7 @@
         NSString *fileExtension = m3u8.pathExtension;
         
         if ([m3u8 containsString:@"pan.baidu.com"]) {
-            [UIAlertController showActionSheetInViewController:self withTitle:@"title" message:@"该链接为百度云连接,是否保存到百度云" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"保存"] popoverPresentationControllerBlock:^(UIPopoverPresentationController * _Nonnull popover) {
+            [UIAlertController showActionSheetInViewController:self withTitle:self.navigationItem.title message:@"该链接为百度云连接,是否保存到百度云" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"保存"] popoverPresentationControllerBlock:^(UIPopoverPresentationController * _Nonnull popover) {
                 popover.sourceView = self.navigationItem.rightBarButtonItem.customView;
                 popover.sourceRect = self.navigationItem.rightBarButtonItem.customView.bounds;
 
@@ -172,7 +173,7 @@
                 [fileExtension isEqualToString:@""] ||
                 [fileExtension containsString:@"php"] ||
                 [fileExtension containsString:@"mp4"]){
-            [UIAlertController showActionSheetInViewController:self withTitle:@"title" message:@"该链接可能无法播放,是否跳到站外观看" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"确定"] popoverPresentationControllerBlock:^(UIPopoverPresentationController * _Nonnull popover) {
+            [UIAlertController showActionSheetInViewController:self withTitle:self.navigationItem.title message:@"该链接可能无法播放,是否跳到站外观看" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"确定"] popoverPresentationControllerBlock:^(UIPopoverPresentationController * _Nonnull popover) {
                 
             } tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
                 

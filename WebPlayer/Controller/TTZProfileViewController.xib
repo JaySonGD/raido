@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,19 +33,19 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今朝睇乜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eJ-rY-Q1s">
-                    <rect key="frame" x="30" y="69" width="136" height="41"/>
+                    <rect key="frame" x="30" y="89" width="136" height="41"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="34"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v2.0.1 by TTZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyZ-lk-DOO">
-                    <rect key="frame" x="30" y="116" width="102.33333333333334" height="20.333333333333343"/>
+                    <rect key="frame" x="29.999999999999993" y="136" width="102.33333333333331" height="20.333333333333343"/>
                     <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                     <color key="textColor" red="0.88627450980392153" green="0.90196078431372551" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-Hw-0vC">
-                    <rect key="frame" x="30" y="168" width="315" height="133.66666666666669"/>
+                    <rect key="frame" x="30" y="188" width="315" height="133.66666666666663"/>
                     <string key="text">睇乜是一款为广大用户了解港台时事，剧集资讯与世界大事小事的应用小工具。
 
 你可以搜索与分享喜欢的节目资讯。
@@ -56,7 +56,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKJ-1T-4eZ">
-                    <rect key="frame" x="36" y="317.66666666666669" width="144" height="34"/>
+                    <rect key="frame" x="36" y="337.66666666666669" width="144" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title=" ☕️  请我喝咖啡   ">
                         <color key="titleColor" red="0.75294117647058822" green="0.87450980392156863" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,7 +66,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAg-NG-Itz">
-                    <rect key="frame" x="39.666666666666657" y="398.66666666666669" width="139" height="34"/>
+                    <rect key="frame" x="39.666666666666657" y="413.66666666666669" width="139" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="📧  我有嘢要讲   ">
                         <color key="titleColor" red="0.75294117650000003" green="0.87450980389999999" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,7 +76,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofc-fM-f5w">
-                    <rect key="frame" x="39" y="356.66666666666669" width="139" height="34"/>
+                    <rect key="frame" x="39" y="375.66666666666669" width="139" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="👉  分享给好友   ">
                         <color key="titleColor" red="0.75294117650000003" green="0.87450980389999999" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,7 +86,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="s9y-GD-wfx">
-                    <rect key="frame" x="276" y="74" width="64" height="64"/>
+                    <rect key="frame" x="276" y="94" width="64" height="64"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="CdB-Q4-nlC"/>
@@ -94,7 +94,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGI-4E-DBK">
-                    <rect key="frame" x="39.333333333333343" y="437.66666666666669" width="139" height="34"/>
+                    <rect key="frame" x="39.333333333333343" y="451.66666666666669" width="139" height="34"/>
                     <state key="normal" title="👍🏻  赏个好评吧   ">
                         <color key="titleColor" red="0.75294117650000003" green="0.87450980389999999" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -103,7 +103,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-kM-yAj">
-                    <rect key="frame" x="30" y="699" width="35" height="35"/>
+                    <rect key="frame" x="30" y="708" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="32c-xh-CFl"/>
                         <constraint firstAttribute="width" constant="35" id="mAa-rj-leU"/>
@@ -118,10 +118,10 @@
                 <constraint firstItem="YgZ-4b-hZ4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="0YZ-eo-ZS7"/>
                 <constraint firstItem="YgZ-4b-hZ4" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="1Iq-ak-Z15"/>
                 <constraint firstItem="CyZ-lk-DOO" firstAttribute="top" secondItem="1eJ-rY-Q1s" secondAttribute="bottom" constant="6" id="1RA-rQ-U2H"/>
-                <constraint firstItem="s9y-GD-wfx" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="30" id="7AC-6h-ecW"/>
-                <constraint firstItem="bGI-4E-DBK" firstAttribute="top" secondItem="EAg-NG-Itz" secondAttribute="bottom" constant="5" id="8Yl-j4-P2F"/>
+                <constraint firstItem="s9y-GD-wfx" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="50" id="7AC-6h-ecW"/>
+                <constraint firstItem="bGI-4E-DBK" firstAttribute="top" secondItem="EAg-NG-Itz" secondAttribute="bottom" constant="4" id="8Yl-j4-P2F"/>
                 <constraint firstItem="M5j-Hw-0vC" firstAttribute="top" secondItem="s9y-GD-wfx" secondAttribute="bottom" constant="30" id="EFR-b6-Bse"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="aQs-kM-yAj" secondAttribute="bottom" constant="44" id="LPo-tb-FDr"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="aQs-kM-yAj" secondAttribute="bottom" constant="35" id="LPo-tb-FDr"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="s9y-GD-wfx" secondAttribute="trailing" constant="35" id="QF2-bA-Neu"/>
                 <constraint firstItem="CyZ-lk-DOO" firstAttribute="leading" secondItem="1eJ-rY-Q1s" secondAttribute="leading" id="ScE-ui-bEZ"/>
                 <constraint firstItem="M5j-Hw-0vC" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="Sz6-y8-igx"/>
@@ -129,13 +129,13 @@
                 <constraint firstItem="bGI-4E-DBK" firstAttribute="centerX" secondItem="EAg-NG-Itz" secondAttribute="centerX" id="bHv-Yt-nEH"/>
                 <constraint firstItem="YgZ-4b-hZ4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fGI-ly-hV3"/>
                 <constraint firstItem="ofc-fM-f5w" firstAttribute="centerX" secondItem="PKJ-1T-4eZ" secondAttribute="centerX" id="hHE-Ok-tGQ"/>
-                <constraint firstItem="ofc-fM-f5w" firstAttribute="top" secondItem="PKJ-1T-4eZ" secondAttribute="bottom" constant="5" id="rDS-mZ-b1g"/>
+                <constraint firstItem="ofc-fM-f5w" firstAttribute="top" secondItem="PKJ-1T-4eZ" secondAttribute="bottom" constant="4" id="rDS-mZ-b1g"/>
                 <constraint firstItem="PKJ-1T-4eZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="36" id="sa9-wd-ng6"/>
-                <constraint firstItem="1eJ-rY-Q1s" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="25" id="t2u-3W-Zvx"/>
+                <constraint firstItem="1eJ-rY-Q1s" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="45" id="t2u-3W-Zvx"/>
                 <constraint firstItem="1eJ-rY-Q1s" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="uLi-Zi-Su5"/>
                 <constraint firstItem="EAg-NG-Itz" firstAttribute="centerX" secondItem="ofc-fM-f5w" secondAttribute="centerX" id="vWJ-Y8-zi1"/>
                 <constraint firstAttribute="bottom" secondItem="YgZ-4b-hZ4" secondAttribute="bottom" id="w3c-k1-vE1"/>
-                <constraint firstItem="EAg-NG-Itz" firstAttribute="top" secondItem="ofc-fM-f5w" secondAttribute="bottom" constant="8" id="wu5-L3-W60"/>
+                <constraint firstItem="EAg-NG-Itz" firstAttribute="top" secondItem="ofc-fM-f5w" secondAttribute="bottom" constant="4" id="wu5-L3-W60"/>
                 <constraint firstItem="PKJ-1T-4eZ" firstAttribute="top" secondItem="M5j-Hw-0vC" secondAttribute="bottom" constant="16" id="y7G-tG-86B"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="M5j-Hw-0vC" secondAttribute="trailing" constant="30" id="zOU-Kf-cDS"/>
             </constraints>

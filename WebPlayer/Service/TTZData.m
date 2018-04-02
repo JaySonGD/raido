@@ -16,7 +16,7 @@
     
     if(![YPNetService hasSetProxy]) {
         
-        NSURL * url = [NSURL URLWithString:@"http://127.0.0.1/hkradio.json"//@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio%20(1)%20.json"
+        NSURL * url = [NSURL URLWithString:@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio-201.json"
                        ];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15.0];
         [request setValue:@"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Mobile Safari/537.36" forHTTPHeaderField:@"User-Agent"];
@@ -53,13 +53,13 @@
                  @[
                      @{
                          @"icon": @"http://m.tvbyb.com/upload/vod/2018-03-01/201803011519886995.jpg",
-                         @"name": @"果栏中的江湖大嫂 粤语版",
+                         @"name": @"果栏中的江湖大嫂",
                          @"url": @"http://acm.gg/jade.m3u8",
                          @"type": @""
                          },
                      @{
                          @"icon": @"http://m.tvbyb.com/upload/vod/2018-03-01/201803011519886943.jpg",
-                         @"name": @"翻生武林 粤语版",
+                         @"name": @"翻生武林",
                          @"url": @"http://m.yueyuwz.com/ffhd/ffyy194444.html",
                          @"type": @""
                          }
@@ -67,6 +67,22 @@
                      ],
              @"list":
                  @[
+                     @{
+                         @"icon":@"https://upload-images.jianshu.io/upload_images/1274527-be87b1780aea777a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
+                         @"name":@"无线财经资讯台",
+                         @"main":@"TVB免费数码频道资讯台。",
+                         @"type": @"radio",
+                         @"des":@"播放内容以“财富及知识”为口号，主要播放自制财经资讯节目，及外购纪录片、剧集、电影及综艺节目。",
+                         @"url":@"http://lhttp.qingting.fm/live/1265/64k.mp3"
+                         },
+                     @{
+                         @"icon":@"https://upload-images.jianshu.io/upload_images/1274527-be87b1780aea777a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
+                         @"name":@"港剧资讯台",
+                         @"main":@"电视广播有限公司的收费频道。",
+                         @"type": @"radio",
+                         @"des":@"宣传口号为“娱乐圈嘅事，娱乐圈话事”，强调为娱乐圈发声。",
+                         @"url":@"http://lhttp.qingting.fm/live/1265/64k.mp3"
+                         },
                      @{
                          @"icon":@"https://upload-images.jianshu.io/upload_images/1274527-be87b1780aea777a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
                          @"name":@"香港第一台",
@@ -208,7 +224,7 @@
                          @"icon":@"https://upload-images.jianshu.io/upload_images/1274527-57174233de246bcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
                          @"name":@"澳门电台",
                          @"type": @"radio",
-
+                         @"des":@"「FM100.7澳門電台」提供24小時公共廣播服務，讓市民可快捷、方便地獲得本地、兩岸及國際新聞資訊；同時 <澳門講場> 及 <縱橫天下> 等節目開放言論平台，主持、嘉賓、市民大眾對本澳及國際大事各抒己見。除每日的新聞報導外，「澳門電台」對市民關注的社會事情作現場直播。節目方面，「澳門電台」亦為巿民提供多元化的選擇，包括生活資訊、音樂、社會服務、閱讀、美食、體育及娛樂等。",
                          @"url":@"http://live4.tdm.com.mo/radio/rch2.live/playlist.m3u8"
                          },
                      @{

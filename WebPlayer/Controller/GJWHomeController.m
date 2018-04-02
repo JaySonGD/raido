@@ -216,7 +216,7 @@ UISearchResultsUpdating
                 [self doAction:model];
             };
             [headView addSubview:bannerView];
-
+            _bannerView = bannerView;
 
 
         }
@@ -300,6 +300,7 @@ UISearchResultsUpdating
         
         [TTZPlayer defaultPlayer].playerLoading = ^{
             [self.playView showLoading];
+            NSLog(@"%@", [NSThread currentThread]);
         };
         [TTZPlayer defaultPlayer].playerCompletion = ^{
             [self.playView hideLoading:nil];

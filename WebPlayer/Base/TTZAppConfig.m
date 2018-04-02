@@ -24,10 +24,9 @@ static TTZAppConfig *instance = nil;
 #define kGoogleMobileAdsBannerID @"ca-app-pub-8803735862522697/8775350241"
 #endif
 #define kMail @"853945995@qq.com"
-#define kCoffeeURL @"https://www.baidu.com/"
-#define kLeaveReviewURL @"itms-apps://itunes.apple.com/app/id1297897150?action=write-review"
-#define kShareURL @"https://itunes.apple.com/cn/app/%E9%A6%99%E6%B8%AF%E7%94%B5%E5%8F%B0-%E9%A6%99%E6%B8%AF%E5%B9%BF%E6%92%AD%E7%94%B5%E5%8F%B0-hk-radio-%E8%A6%81%E5%90%AC%E5%90%AC%E9%A6%99%E6%B8%AF%E6%94%B6%E9%9F%B3%E6%9C%BA/id1297897150?mt=8&uo=4"
-
+#define kCoffeeURL @"HTTPS://QR.ALIPAY.COM/FKX03085VVOKMVPYBHPM8B"
+#define kLeaveReviewURL @"itms-apps://itunes.apple.com/app/id1367069452?action=write-review"
+#define kShareURL @"https://itunes.apple.com/cn/app/id1367069452?mt=8"
 #define kJoinQQURL @"https://jq.qq.com/?_wv=1027&k=5DPXEe5"
 
 @implementation TTZAppConfig
@@ -129,12 +128,12 @@ static TTZAppConfig *instance = nil;
 
 - (NSString *)version{
     NSString *version =  [[NSUserDefaults standardUserDefaults] objectForKey:@"version"];
-    return version? version : _version;
+    return version.length? version : _version;
 }
 
 - (NSString *)joinQQURL{
     NSString *joinQQURL =  [[NSUserDefaults standardUserDefaults] objectForKey:@"joinQQURL"];
-    return joinQQURL? joinQQURL : kJoinQQURL;
+    return joinQQURL.length? joinQQURL : kJoinQQURL;
 }
 
 -(BOOL)isIsOnLine{
