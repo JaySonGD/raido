@@ -1,0 +1,232 @@
+{
+    "config": {
+
+        "isRemoveAd": 1,
+        "googleMobileAdsBannerID": "",
+        "googleMobileAdsInterstitialID": "",
+        "googleMobileAdsAppID": "",
+
+        "version": "2.0.1",
+        "isOnLine": 0,
+        "coffeeURL": "http://www.iconfont.cn/",
+        "shareURL": "http://www.iconfont.cn/",
+        "mail": "czljcb@163.com",
+        "leaveReviewURL": "http://www.iconfont.cn/"
+
+    },
+    "banner": [{
+            "icon": "http://m.tvbyb.com/upload/vod/2018-03-01/201803011519886995.jpg",
+            "name": "果栏中的江湖大嫂 粤语版",
+            "url": "http://acm.gg/jade.m3u8",
+            "type": "video"
+        }, {
+            "icon": "http://m.tvbyb.com/upload/vod/2018-03-01/201803011519886943.jpg",
+            "name": "翻生武林 粤语版",
+            "url": "http://m.yueyuwz.com/ffhd/ffyy194444.html",
+            "type": "detail"
+        }, {
+            "icon": "http://afox.mobi/ausradio/HK1.jpg",
+            "name": "RTHK第一台",
+            "url": "http://rthkaudio1-lh.akamaihd.net/i/radio1_1@355864/master.m3u8",
+            "type": "radio"
+        }, {
+            "icon": "http://afox.mobi/ausradio/HK1.jpg",
+            "name": "RTHK第一台",
+            "url": "https://www.qimai.cn/app/rank/appid/1359761086/country/cn",
+            "type": "html"
+        }, {
+            "icon": "http://afox.mobi/ausradio/HK1.jpg",
+            "name": "三个女人一个因粤语版",
+            "url": "",
+            "type": "hktv"
+        }
+
+    ],
+    "list": [{
+        "icon": "http://pic.qingting.fm/2014/0616/20140616100853326.png!200",
+        "name": "港剧资讯",
+        "url": "",
+        "des": "港星港闻欢乐多 剧情剧透经典多。",
+        "type": "hktv",
+        "isAddId": 1
+    }, {
+        "icon": "http://pic.qingting.fm/2014/0616/20140616100853326.png!200",
+        "name": "港剧TV",
+        "url": "",
+        "des": "港星港闻欢乐多 剧情剧透经典多。",
+        "type": "tv",
+        "isReview": 1
+    }, {
+        "icon": "http://pic.qingting.fm/2014/0616/20140616100853326.png!200",
+        "name": "91看电视",
+        "url": "",
+        "des": "港星港闻欢乐多 剧情剧透经典多。",
+        "type": "kds",
+        "isReview": 1
+    }, {
+        "icon": "http://pic.qingting.fm/2014/0616/20140616100853326.png!200",
+        "name": "怀集音乐之声",
+        "url": "http://cnlive.cnr.cn/hls/hjyyzs.m3u8",
+        "des": "怀集音乐之声是一个旨在服务怀集,宣传怀集,建设怀集为宗旨.为广大为事业打拼而于珠三角的怀集乡贤乡里提供一个相互交流的平台!!!",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/HK1.jpg",
+        "name": "RTHK第一台",
+        "url": "http://rthkaudio1-lh.akamaihd.net/i/radio1_1@355864/master.m3u8",
+        "des": "每小時更新的五分鐘新聞報導，每日三次英語新聞報導，中文歌曲龍虎榜及香江歲月音樂會",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/hk2.jpg",
+        "name": "RTHK第二台",
+        "url": "http://rthkaudio2-lh.akamaihd.net/i/radio2_1@355865/master.m3u8",
+        "des": "頻道定位為知識與娛樂並重的「資訊台」，以年青一代的聽眾為對象",
+        "type": "radio"
+
+    }, {
+        "icon": "http://afox.mobi/ausradio/xianggang4.gif",
+        "name": "RTHK第四台",
+        "url": "http://rthkaudio4-lh.akamaihd.net/i/radio4_1@355867/master.m3u8",
+        "des": "香港唯一的「古典音樂及藝術台」，藉推廣美樂(Fine Music)和製作藝壇快訊、專訪及音樂外展活動，提昇大眾精神生活的素質",
+        "type": "radio"
+
+    }, {
+        "icon": "http://afox.mobi/ausradio/HK5.jpg",
+        "name": "RTHK第五台",
+        "url": "http://rthkaudio5-lh.akamaihd.net/i/radio5_1@355868/master.m3u8",
+        "des": "「長者、文化及教育台」，既服務長者又照顧小眾，包括戲曲、文教、長者服務及兒童節目，是聽眾的「空中良伴，生活寶庫」",
+        "type": "radio"
+
+    }, {
+        "icon": "http://afox.mobi/ausradio/xincheng1.jpg",
+        "name": "新城知訊台",
+        "url": "http://metroradio-lh.akamaihd.net/i/997_h@349799/index_48_a-p.m3u8",
+        "des": "新城知訊台為廣大聽眾提供多元化節目，內容集知識、音樂、生活文化、自我增值、娛樂等於一身，令資訊垂手可得",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/xinchengcaijing.jpg",
+        "name": "新城財經台",
+        "url": "http://metroradio-lh.akamaihd.net/i/104_h@349798/index_48_a-b.m3u8",
+        "des": "新城財經台是全球首個廿四小時廣東話財經電台頻道，旨在為香港以及世界各地聽眾提供準確、實時以及緊貼環球金融市場的重要資訊",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/d100.jpg",
+        "name": "D100 PBS",
+        "url": "http://68.235.39.19:8000/Channel1-128MP3",
+        "des": "為免費頻道，口號為「把公義聲音留住」。",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/hkj.jpg",
+        "name": "HKJ我們的夢想電台",
+        "url": "http://listen.hkjradio.com:9000/listen",
+        "des": "把我們的音樂、我們的聲音，帶到世界每個角落，為全球聽眾準時播送每個節目，最精彩的節目",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/zhenzi.jpg",
+        "name": "夜深情真‧甄子程",
+        "url": "http://streaming.radio.co/s6f4c5734d/listen",
+        "des": "逢星期六深夜十一至凌晨二時直播，陪大家一起聽歌點唱。",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/2cr.jpg",
+        "name": "2CR Radio",
+        "url": "http://s6.voscast.com:8016/;stream1505307174292/1",
+        "des": "2cr Cantonese radio",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/us/xingdao.jpg",
+        "name": "星島中文電台粵語台",
+        "url": "http://50.7.71.27:9731/;?icy=http",
+        "des": "星島中文電台粵語台Sing Tao Chinese Radio AM1400",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/us/aomen.jpg",
+        "name": "澳門電台FM100.7",
+        "url": "rtsp://live4.tdm.com.mo:80/radio/rch2.live",
+        "des": "FM100.7澳門電台」提供24小時公共廣播服務，讓市民可快捷、方便地獲得本地、兩岸及國際新聞資訊",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/billboard.jpg",
+        "name": "Billboard音悅臺",
+        "url": "http://gfm.rastream.com/gfm-todaysmix?",
+        "des": "A digital radio/entertainment platform in Hong Kong & China bringing the best of HK and China to the world Tune in 24 hours a day",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/xianggang1.jpg",
+        "name": "香港之声",
+        "url": "http://rtmpcnr008.cnr.cn/live/xgzs/playlist.m3u8",
+        "des": "中央人民广播电台的第十四套节目。使用普通话、广州话全天24小时不间断播音",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/rgd1.jpg",
+        "name": "fm974廣東廣播",
+        "url": "http://ctt.rgd.com.cn/fm974",
+        "des": "珠江經濟臺FM974",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/bbc.jpg",
+        "name": "BBC Asia Pacific",
+        "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/nonuk/low/ak/bbc_world_service.m3u8",
+        "des": "Get the latest Asian news from BBC News in Asia",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/jiangtai.jpg",
+        "name": "Talkonly（講台)",
+        "url": "http://103.11.102.62:8000/talkonly.mp3",
+        "des": "一個以IT為專題的網上電台，提供多項與IT有關的資訊，逢星期五晚上九時半開始直播至零晨時份",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/xianggangputonghua.gif",
+        "name": "RTHK普通話台",
+        "url": "http://rthkaudio6-lh.akamaihd.net/i/radiopth_1@355869/master.m3u8",
+        "des": "香港唯一的普通話台」，本港創先河設立的普通話廣播頻道，致力成為「新香港人的電台」",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/christ_logo/liangyou.jpg",
+        "name": "良友电台",
+        "url": "ttp://ly729.out.airtime.pro:8000/ly729_a?1488165294968.mp3",
+        "des": "一個有著悠久歷史的基督教福音中文电台。广播语言为普通话、雲南話、粤语、回民廣播、壯語",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/radio3.jpg",
+        "name": "RTHK Radio 3",
+        "url": "http://rthkaudio3-lh.akamaihd.net/i/radio3_1@355866/index_56_a-p.m3u8",
+        "des": "RTHK Radio 3, FM 97.9, Hong Kong. Listen live plus station schedule, song playlist, location and contact information online.",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/sprn.jpg",
+        "name": "SPRN Music",
+        "url": "http://gfm.rastream.com/gfm-asiahitz?type=.flv",
+        "des": "Online Internet Music Radio Station",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/applefm.jpg",
+        "name": "Apple-FM",
+        "url": "http://server20.applesources.net:8000/apple-fm.mp3",
+        "des": "THE OLDIES STATION FROM HONG KONG",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/radioapi/christ_logo/wangfucun.jpg",
+        "name": "望福村",
+        "url": "http://vohc.no-ip.org/vohc/vohc.m3u8",
+        "des": "人活著不能沒有希望,信主之人得到的,更是鴻福之望",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/metroplus.jpg",
+        "name": "AM1044 Metro Plus",
+        "url": "http://metroradio-lh.akamaihd.net/i/1044_h@349800/index_48_a-p.m3u8?sd=10&rebase=on",
+        "des": "Metro Plus AM 1044, Hong Kong's No.1 Hit Music Station, AM 1044.",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/lantau.jpeg",
+        "name": "Radio Lantau",
+        "url": "http://205.134.253.103:9302/;",
+        "des": "Expat oriented rock, surf, soul, funk, powerpop, jazz, rockabilly and blues.",
+        "type": "radio"
+    }, {
+        "icon": "http://afox.mobi/ausradio/citizen.jpg",
+        "name": "Citizens Radio",
+        "url": "http://radio1.citizensradio.org:8000/xstream",
+        "des": "民間電台 is a radio station in Hong Kong established by pro-democracy camp figure Tsang Kin Shing",
+        "type": "radio"
+    }]
+}
