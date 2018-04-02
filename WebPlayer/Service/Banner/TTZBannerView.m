@@ -177,7 +177,7 @@
     }
     TTZBannerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TTZBannerCell" forIndexPath:indexPath];
     NSString *imageName = (NSString *)[self.models[indexPath.item] icon];
-    [cell.iconView sd_setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:nil];
+    [cell.iconView sd_setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:[UIImage imageNamed:@"logo"]];
     return cell;
 }
 

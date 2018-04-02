@@ -16,7 +16,7 @@
     
     if(![YPNetService hasSetProxy]) {
         
-        NSURL * url = [NSURL URLWithString:@"http://127.0.0.1/ishare/hkradio.json"//@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio%20(1)%20.json"
+        NSURL * url = [NSURL URLWithString:@"http://127.0.0.1/hkradio.json"//@"https://tv-1252820456.cos.ap-guangzhou.myqcloud.com/hkradio%20(1)%20.json"
                        ];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15.0];
         [request setValue:@"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Mobile Safari/537.36" forHTTPHeaderField:@"User-Agent"];

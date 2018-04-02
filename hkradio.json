@@ -1,16 +1,12 @@
 {
     "config": {
 
-        "isRemoveAd": 1,
-        "googleMobileAdsBannerID": "",
-        "googleMobileAdsInterstitialID": "",
-        "googleMobileAdsAppID": "",
 
         "version": "2.0.1",
         "isOnLine": 0,
         "coffeeURL": "http://www.iconfont.cn/",
         "shareURL": "http://www.iconfont.cn/",
-        "mail": "czljcb@163.com",
+        "mail": "czljcz@163.com",
         "leaveReviewURL": "http://www.iconfont.cn/"
 
     },
@@ -46,14 +42,16 @@
         "icon": "http://pic.qingting.fm/2014/0616/20140616100853326.png!200",
         "name": "港剧资讯",
         "url": "",
-        "des": "港星港闻欢乐多 剧情剧透经典多。",
+        "main":"TVB最新电视剧,TVB电视剧,TVB新剧,港剧论坛,港剧网站,经典港剧",
+        "des": "港剧资讯专注港剧最快更新,为港剧迷在线观看港剧,收集港剧网盘,港剧迅雷地址,好看的港剧推荐",
         "type": "hktv",
         "isAddId": 1
     }, {
         "icon": "http://pic.qingting.fm/2014/0616/20140616100853326.png!200",
         "name": "港剧TV",
         "url": "",
-        "des": "港星港闻欢乐多 剧情剧透经典多。",
+        "main":"翡翠台AUTO  翡翠台 J2 J5直播",
+        "des": "剧TV为粤语地区提供主流的粤语频道,包括粤港主流的电视频道。",
         "type": "tv",
         "isReview": 1
     }, {

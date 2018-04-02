@@ -20,6 +20,7 @@
 
 @property (nonatomic, copy) NSString *shareURL;
 
+@property (nonatomic, copy) NSString *joinQQURL;
 
 @property (nonatomic, copy) NSString *coffeeURL;
 

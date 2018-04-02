@@ -40,7 +40,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    if ([TTZAppConfig defaultConfig].hasNewVersion) {
+    BOOL hasNew = [TTZAppConfig defaultConfig].hasNewVersion;
+    if (hasNew) {
         
         UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil
                                                                          message:[NSString stringWithFormat:@"发现新版本:%@",[TTZAppConfig defaultConfig].version]

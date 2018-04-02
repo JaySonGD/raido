@@ -73,6 +73,8 @@
     [self share:sender];
 }
 - (IBAction)sendMessage:(UIButton *)sender {
+    
+    
     [self sendMail];
 }
 
@@ -94,6 +96,13 @@
 
 
 - (void)sendMail{
+    
+    
+    if ([TTZAppConfig defaultConfig].isOnLine) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[TTZAppConfig defaultConfig].joinQQURL]];
+        return;
+    }
+    
     if (![MFMailComposeViewController canSendMail]) {
         return;
     }
